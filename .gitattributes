@@ -1,0 +1,6 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+ArtifactDB filter=lfs diff=lfs merge=lfs -text
+lld filter=lfs diff=lfs merge=lfs -text
+Adfaasdsad filter=lfs diff=lfs merge=lfs -text
+Library/ArtifactDB filter=lfs diff=lfs merge=lfs -text
