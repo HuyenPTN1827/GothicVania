@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{64572C45-8DB8-3FDA-F347-E9AF6C45DB0D}</ProjectGuid>
+    <ProjectGuid>{0133A2FF-5D78-4700-813F-5FF37EAF13C3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.Sprite.Editor</AssemblyName>
@@ -1065,11 +1065,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{5875781F-08AF-84FB-5BCA-6E64924D3F08}</Project>
+      <Project>{23635058-CEC0-5143-8863-9B26BD8FA0CB}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{AA2E52C8-E34C-5DE6-6523-B657025E29B5}</Project>
+      <Project>{F0A4FDA2-7492-34C8-7E8C-BC80CD04BE78}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
   </ItemGroup>

@@ -12,27 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e286774ca2801d147ba19accc17b6a91, type: 3}
   m_Name: Data
   m_EditorClassIdentifier: 
-  gravityStrength: -52
-  gravityScale: 1.4857143
+  gravityStrength: -43.75
+  gravityScale: 1.25
   fallGravityMult: 2
   maxFallSpeed: 18
-  runMaxSpeed: 9.5
-  runAcceleration: 9.5
-  runAccelAmount: 50
-  runDecceleration: 9.5
-  runDeccelAmount: 50
+  runMaxSpeed: 7
+  runAcceleration: 4.5
+  runAccelAmount: 32.142857
+  runDecceleration: 6
+  runDeccelAmount: 42.857143
   accelInAir: 1
   deccelInAir: 1
   doConserveMomentum: 0
-  jumpHeight: 6.5
-  jumpTimeToApex: 0.5
-  jumpForce: 26
+  jumpHeight: 3.5
+  jumpTimeToApex: 0.4
+  jumpForce: 17.5
   jumpCutGravityMult: 3.5
   jumpHangGravityMult: 1
   jumpHangTimeThreshold: 0
   jumpHangAccelerationMult: 1
   jumpHangMaxSpeedMult: 1
-  wallJumpForce: {x: 8.5, y: 20}
+  wallJumpForce: {x: 2.5, y: 2}
   wallJumpRunLerp: 0.075
   wallJumpTime: 0.3
   doTurnOnWallJump: 0
@@ -41,11 +41,11 @@ MonoBehaviour:
   coyoteTime: 0.2
   jumpInputBufferTime: 0.5
   dashAmount: 1
-  dashSpeed: 80
+  dashSpeed: 40
   dashSleepTime: 0.1
   dashAttackTime: 0.15
-  dashEndTime: 0.25
-  dashEndSpeed: {x: 15, y: 15}
+  dashEndTime: 0.2
+  dashEndSpeed: {x: 7, y: 7}
   dashEndRunLerp: 0.5
   dashRefillTime: 0.5
   dashInputBufferTime: 0.1
