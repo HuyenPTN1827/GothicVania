@@ -116,7 +116,7 @@
 -define:UNITY_TESTS_FRAMEWORK
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"D:/Git/Runner/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
+-r:"D:/Git/GothicVania/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
 -r:"D:/Program Files/Unity/Hub/Editor/2021.3.32f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"D:/Program Files/Unity/Hub/Editor/2021.3.32f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
 -r:"D:/Program Files/Unity/Hub/Editor/2021.3.32f1/Editor/Data/Managed/UnityEngine/UnityEditor.DiagnosticsModule.dll"
