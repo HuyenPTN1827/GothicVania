@@ -2,32 +2,56 @@
   "BurstVersion": "ed7d93ab-72ae-4d46-9fc9-027b31698d75",
   "Assemblies": [
     {
-      "FullName": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2023-10-25T19:33:12Z"
+      "FullName": "Unity.2D.Common.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2024-02-16T10:21:33.5909381Z"
     },
     {
-      "FullName": "Unity.2D.Psdimporter.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2024-02-13T22:19:50.7137156Z"
+      "FullName": "Unity.Mathematics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2024-02-16T10:21:33.5929707Z"
+    },
+    {
+      "FullName": "Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2024-02-16T10:21:33.5711902Z"
+    },
+    {
+      "FullName": "UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2023-10-25T19:33:12Z"
     },
     {
       "FullName": "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
       "LastWriteTime": "2023-10-25T19:10:18Z"
     },
     {
-      "FullName": "Unity.Mathematics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2024-02-13T22:19:49.6664004Z"
+      "FullName": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2023-10-25T19:33:12Z"
+    },
+    {
+      "FullName": "netstandard, Version=2.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "LastWriteTime": "2023-10-25T19:10:18Z"
     },
     {
       "FullName": "mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
       "LastWriteTime": "2023-10-25T19:10:18Z"
     },
     {
-      "FullName": "Unity.2D.Common.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2024-02-13T22:19:50.0368289Z"
+      "FullName": "Unity.2D.Animation.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2024-02-16T10:21:34.0810703Z"
+    },
+    {
+      "FullName": "Unity.2D.Common.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2024-02-16T10:21:33.561128Z"
+    },
+    {
+      "FullName": "Unity.2D.Psdimporter.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2024-02-16T10:21:33.476281Z"
     },
     {
       "FullName": "PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2024-02-13T22:19:50.2105984Z"
+      "LastWriteTime": "2024-02-16T10:21:33.5757273Z"
+    },
+    {
+      "FullName": "Unity.2D.Aseprite.Common, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2024-02-16T10:21:33.4909057Z"
     },
     {
       "FullName": "mscorlib, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -35,113 +59,36 @@
     },
     {
       "FullName": "Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2024-02-13T22:19:49.9702628Z"
-    },
-    {
-      "FullName": "netstandard, Version=2.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
-      "LastWriteTime": "2023-10-25T19:10:18Z"
+      "LastWriteTime": "2024-02-16T10:21:33.5666604Z"
     },
     {
       "FullName": "UnityEngine.SpriteShapeModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
       "LastWriteTime": "2023-10-25T19:33:12Z"
     },
     {
-      "FullName": "Unity.2D.Common.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2024-02-13T22:19:49.8774582Z"
-    },
-    {
-      "FullName": "Unity.2D.Animation.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2024-02-13T22:19:50.6014517Z"
-    },
-    {
-      "FullName": "Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2024-02-13T22:19:50.092744Z"
-    },
-    {
-      "FullName": "UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2023-10-25T19:33:12Z"
-    },
-    {
-      "FullName": "Unity.2D.Aseprite.Common, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2024-02-13T22:19:50.0302948Z"
-    },
-    {
       "FullName": "Unity.2D.Animation.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2024-02-13T22:19:49.8729475Z"
+      "LastWriteTime": "2024-02-16T10:21:33.470731Z"
     },
     {
       "FullName": "Unity.2D.Aseprite.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2024-02-13T22:19:50.1174143Z"
+      "LastWriteTime": "2024-02-16T10:21:33.5808145Z"
     }
   ],
   "Functions": [
     {
-      "FullName": "Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[UnityEditor.U2D.PSD.FlattenImageTask+FlattenImageInternalJob, Unity.2D.Psdimporter.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEditor.U2D.PSD.FlattenImageTask+FlattenImageInternalJob&, Unity.2D.Psdimporter.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
+      "FullName": "UnityEditor.U2D.Common.ImagePacker, Unity.2D.Common.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::BurstedBlit(UnityEngine.Color32*, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|Unity.Mathematics.int4&, Unity.Mathematics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|Unity.Mathematics.int4&, Unity.Mathematics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|UnityEngine.Color32*, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null)",
       "ModuleOptionsHash": 15221144590354301703,
-      "ModuleHash": "ab8dab9b46ec45776446488b994c78b8",
-      "LinkName": "18C2EC3E41FEE880",
+      "ModuleHash": "6909e0bc88675704da7feef7966042da",
+      "LinkName": "8115CAFF6B65630B",
       "AssemblyDependencyIndices": [
         0,
         1,
         2,
         3,
-        4
-      ]
-    },
-    {
-      "FullName": "Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[UnityEditor.U2D.Common.FindTightRectJob, Unity.2D.Common.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEditor.U2D.Common.FindTightRectJob&, Unity.2D.Common.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
-      "ModuleOptionsHash": 15221144590354301703,
-      "ModuleHash": "5e252269cacdda431d36d905fec55d67",
-      "LinkName": "FBD0B2A6246F6223",
-      "AssemblyDependencyIndices": [
-        0,
+        4,
         5,
-        2,
-        4
-      ]
-    },
-    {
-      "FullName": "Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[PaintDotNet.Data.PhotoshopFileType.PDNDecoderJob, PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(PaintDotNet.Data.PhotoshopFileType.PDNDecoderJob&, PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
-      "ModuleOptionsHash": 15221144590354301703,
-      "ModuleHash": "bda76a46ca4c2392573decc981eab5f5",
-      "LinkName": "4B57F329150937D0",
-      "AssemblyDependencyIndices": [
-        0,
         6,
-        7,
-        2,
-        4
-      ]
-    },
-    {
-      "FullName": "Unity.Jobs.IJobExtensions+JobStruct`1[[UnityEngine.U2D.SpriteShapeGenerator, Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEngine.U2D.SpriteShapeGenerator&, Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
-      "ModuleOptionsHash": 15221144590354301703,
-      "ModuleHash": "d8f8eccfce6103fe408851ab5586e92e",
-      "LinkName": "104599FDEEB36FAE",
-      "AssemblyDependencyIndices": [
-        0,
-        8,
-        9,
-        10,
-        2,
-        3,
-        11,
-        4
-      ]
-    },
-    {
-      "FullName": "Unity.Jobs.IJobExtensions+JobStruct`1[[UnityEditor.U2D.Animation.TriangulateJob, Unity.2D.Animation.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEditor.U2D.Animation.TriangulateJob&, Unity.2D.Animation.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
-      "ModuleOptionsHash": 15221144590354301703,
-      "ModuleHash": "d88eda5956b7921373d226453e5113a0",
-      "LinkName": "49056CD1270901E4",
-      "AssemblyDependencyIndices": [
-        0,
-        12,
-        2,
-        11,
-        3,
-        9,
-        4
+        7
       ]
     },
     {
@@ -150,25 +97,26 @@
       "ModuleHash": "7e7b4934f4065782c3ebe0385b26958e",
       "LinkName": "750999B742A414C6",
       "AssemblyDependencyIndices": [
-        0,
-        12,
-        11,
-        2,
-        3,
+        5,
+        8,
+        4,
         9,
-        4
+        1,
+        6,
+        7
       ]
     },
     {
-      "FullName": "Unity.Jobs.IJobExtensions+JobStruct`1[[PaintDotNet.Data.PhotoshopFileType.PDNAlphaMaskJob, PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(PaintDotNet.Data.PhotoshopFileType.PDNAlphaMaskJob&, PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
+      "FullName": "Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[UnityEditor.U2D.PSD.FlattenImageTask+FlattenImageInternalJob, Unity.2D.Psdimporter.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEditor.U2D.PSD.FlattenImageTask+FlattenImageInternalJob&, Unity.2D.Psdimporter.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
       "ModuleOptionsHash": 15221144590354301703,
-      "ModuleHash": "9684ad75e41e8322b567c5c19eb03c04",
-      "LinkName": "B33AFCD7D8FB6AEB",
+      "ModuleHash": "ab8dab9b46ec45776446488b994c78b8",
+      "LinkName": "18C2EC3E41FEE880",
       "AssemblyDependencyIndices": [
-        0,
-        6,
-        2,
-        4
+        5,
+        10,
+        4,
+        1,
+        7
       ]
     },
     {
@@ -177,39 +125,23 @@
       "ModuleHash": "b0b8068ecb8bad08894f79ffecda4b22",
       "LinkName": "85C34B2AEC2FC609",
       "AssemblyDependencyIndices": [
-        0,
+        5,
+        10,
+        4,
         1,
-        2,
-        3,
-        4
+        7
       ]
     },
     {
-      "FullName": "UnityEditor.U2D.Common.ImagePacker, Unity.2D.Common.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::BurstedBlit(UnityEngine.Color32*, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|Unity.Mathematics.int4&, Unity.Mathematics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|Unity.Mathematics.int4&, Unity.Mathematics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|UnityEngine.Color32*, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null)",
+      "FullName": "Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[PaintDotNet.Data.PhotoshopFileType.PDNDecoderJob, PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(PaintDotNet.Data.PhotoshopFileType.PDNDecoderJob&, PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
       "ModuleOptionsHash": 15221144590354301703,
-      "ModuleHash": "6909e0bc88675704da7feef7966042da",
-      "LinkName": "8115CAFF6B65630B",
+      "ModuleHash": "bda76a46ca4c2392573decc981eab5f5",
+      "LinkName": "4B57F329150937D0",
       "AssemblyDependencyIndices": [
         5,
-        2,
-        3,
-        13,
-        14,
-        0,
-        9,
-        4
-      ]
-    },
-    {
-      "FullName": "Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[UnityEditor.U2D.Aseprite.Common.FindTightRectJob, Unity.2D.Aseprite.Common, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEditor.U2D.Aseprite.Common.FindTightRectJob&, Unity.2D.Aseprite.Common, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
-      "ModuleOptionsHash": 15221144590354301703,
-      "ModuleHash": "724bee026ed3dd2a28f3b6f6567cad82",
-      "LinkName": "BDAC3C956B243D2E",
-      "AssemblyDependencyIndices": [
-        0,
-        15,
-        2,
-        4
+        11,
+        4,
+        7
       ]
     },
     {
@@ -218,15 +150,83 @@
       "ModuleHash": "bf3027b30a60a1de8cd41a24feea5f57",
       "LinkName": "9C987EFE5F9A4A52",
       "AssemblyDependencyIndices": [
-        0,
-        12,
+        5,
+        8,
+        4,
+        1,
+        6,
         2,
-        3,
         9,
-        13,
+        3,
+        7
+      ]
+    },
+    {
+      "FullName": "Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[UnityEditor.U2D.Aseprite.Common.FindTightRectJob, Unity.2D.Aseprite.Common, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEditor.U2D.Aseprite.Common.FindTightRectJob&, Unity.2D.Aseprite.Common, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
+      "ModuleOptionsHash": 15221144590354301703,
+      "ModuleHash": "724bee026ed3dd2a28f3b6f6567cad82",
+      "LinkName": "BDAC3C956B243D2E",
+      "AssemblyDependencyIndices": [
+        5,
+        12,
+        4,
+        7
+      ]
+    },
+    {
+      "FullName": "Unity.Jobs.IJobExtensions+JobStruct`1[[PaintDotNet.Data.PhotoshopFileType.PDNAlphaMaskJob, PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(PaintDotNet.Data.PhotoshopFileType.PDNAlphaMaskJob&, PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
+      "ModuleOptionsHash": 15221144590354301703,
+      "ModuleHash": "9684ad75e41e8322b567c5c19eb03c04",
+      "LinkName": "B33AFCD7D8FB6AEB",
+      "AssemblyDependencyIndices": [
+        5,
         11,
+        4,
+        7
+      ]
+    },
+    {
+      "FullName": "Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[UnityEditor.U2D.Common.FindTightRectJob, Unity.2D.Common.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEditor.U2D.Common.FindTightRectJob&, Unity.2D.Common.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
+      "ModuleOptionsHash": 15221144590354301703,
+      "ModuleHash": "5e252269cacdda431d36d905fec55d67",
+      "LinkName": "FBD0B2A6246F6223",
+      "AssemblyDependencyIndices": [
+        5,
+        0,
+        13,
+        4,
+        7
+      ]
+    },
+    {
+      "FullName": "Unity.Jobs.IJobExtensions+JobStruct`1[[UnityEditor.U2D.Animation.TriangulateJob, Unity.2D.Animation.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEditor.U2D.Animation.TriangulateJob&, Unity.2D.Animation.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
+      "ModuleOptionsHash": 15221144590354301703,
+      "ModuleHash": "d88eda5956b7921373d226453e5113a0",
+      "LinkName": "49056CD1270901E4",
+      "AssemblyDependencyIndices": [
+        5,
+        8,
+        9,
+        4,
+        1,
+        6,
+        7
+      ]
+    },
+    {
+      "FullName": "Unity.Jobs.IJobExtensions+JobStruct`1[[UnityEngine.U2D.SpriteShapeGenerator, Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEngine.U2D.SpriteShapeGenerator&, Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
+      "ModuleOptionsHash": 15221144590354301703,
+      "ModuleHash": "d8f8eccfce6103fe408851ab5586e92e",
+      "LinkName": "104599FDEEB36FAE",
+      "AssemblyDependencyIndices": [
+        5,
         14,
-        4
+        6,
+        15,
+        4,
+        1,
+        9,
+        7
       ]
     },
     {
@@ -235,9 +235,9 @@
       "ModuleHash": "260a639dee98eddd6638eeedf97acf98",
       "LinkName": "801E9A000BB37B05",
       "AssemblyDependencyIndices": [
-        13,
-        9,
-        2
+        2,
+        6,
+        4
       ]
     },
     {
@@ -246,9 +246,9 @@
       "ModuleHash": "1db83a4da1bc87c950632e61eb41a043",
       "LinkName": "CDCA4A5193BE5947",
       "AssemblyDependencyIndices": [
-        13,
-        9,
-        2
+        2,
+        6,
+        4
       ]
     },
     {
@@ -257,14 +257,14 @@
       "ModuleHash": "2df07a9a4d465cf114ebf3ec5f00340d",
       "LinkName": "98F0B94E81C56132",
       "AssemblyDependencyIndices": [
-        15,
+        12,
+        4,
+        5,
+        1,
         2,
-        0,
+        6,
         3,
-        13,
-        9,
-        14,
-        4
+        7
       ]
     },
     {
@@ -274,12 +274,12 @@
       "LinkName": "22C1BA9B75E8DDE1",
       "AssemblyDependencyIndices": [
         16,
-        9,
+        6,
+        4,
+        5,
         2,
-        0,
-        13,
-        14,
-        4
+        3,
+        7
       ]
     },
     {
@@ -289,12 +289,12 @@
       "LinkName": "3BBA922C5BD340F0",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -304,12 +304,12 @@
       "LinkName": "62D0693A7DAE3BF2",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -319,12 +319,12 @@
       "LinkName": "70F6B2F3D134B23E",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -334,12 +334,12 @@
       "LinkName": "DAA0F4F1418E1C6C",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -349,11 +349,11 @@
       "LinkName": "9F1830C7A32765FD",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14
+        6,
+        5,
+        3
       ]
     },
     {
@@ -363,12 +363,12 @@
       "LinkName": "28771DBBD7F795BB",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -378,12 +378,12 @@
       "LinkName": "96CE164DCCCB1B70",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -393,12 +393,12 @@
       "LinkName": "8308C9E2892F6E5A",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -408,11 +408,11 @@
       "LinkName": "883C9AC616120DEE",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14
+        6,
+        5,
+        3
       ]
     },
     {
@@ -422,12 +422,12 @@
       "LinkName": "A7390C99179292F4",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -437,12 +437,12 @@
       "LinkName": "F7D26AC64A1DAC3B",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -452,11 +452,11 @@
       "LinkName": "870BA7F2192613DF",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14
+        6,
+        5,
+        3
       ]
     },
     {
@@ -466,12 +466,12 @@
       "LinkName": "260325D94914FBD3",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -481,12 +481,12 @@
       "LinkName": "5D1FA2CBD61331BF",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14,
-        4
+        6,
+        5,
+        3,
+        7
       ]
     },
     {
@@ -496,12 +496,12 @@
       "LinkName": "CA97EE79910C7494",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -511,12 +511,12 @@
       "LinkName": "6ED7C2AE8E496882",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -526,12 +526,12 @@
       "LinkName": "B05B9394025D200E",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14,
-        4
+        6,
+        5,
+        3,
+        7
       ]
     },
     {
@@ -541,12 +541,12 @@
       "LinkName": "D86A9BB810F6760B",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -556,11 +556,11 @@
       "LinkName": "138603036CFC9CB8",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14
+        6,
+        5,
+        3
       ]
     },
     {
@@ -570,12 +570,12 @@
       "LinkName": "1CB5B7BE437C961A",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -585,12 +585,12 @@
       "LinkName": "4C455B3B2120EA16",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -600,11 +600,11 @@
       "LinkName": "A6EF1802CF3CFE1E",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14
+        6,
+        5,
+        3
       ]
     },
     {
@@ -614,12 +614,12 @@
       "LinkName": "1BEA8CC8A6846F2C",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -629,12 +629,12 @@
       "LinkName": "354C57581B2F6023",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -644,12 +644,12 @@
       "LinkName": "60B5630FC811DFF5",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -659,12 +659,12 @@
       "LinkName": "BDB0260838A3AD78",
       "AssemblyDependencyIndices": [
         17,
+        4,
+        5,
         2,
-        0,
-        13,
-        9,
-        14,
-        4
+        6,
+        3,
+        7
       ]
     },
     {
@@ -674,11 +674,11 @@
       "LinkName": "F0C4B326AAEE07D0",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14
+        6,
+        5,
+        3
       ]
     },
     {
@@ -688,11 +688,11 @@
       "LinkName": "AD26A8C88DD9C7A8",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14
+        6,
+        5,
+        3
       ]
     },
     {
@@ -702,11 +702,11 @@
       "LinkName": "95A2A82581DF6B5C",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14
+        6,
+        5,
+        3
       ]
     },
     {
@@ -716,12 +716,12 @@
       "LinkName": "AC34075A51EA8199",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14,
-        4
+        6,
+        5,
+        3,
+        7
       ]
     },
     {
@@ -731,11 +731,11 @@
       "LinkName": "7126F3102C4C13A5",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14
+        6,
+        5,
+        3
       ]
     },
     {
@@ -745,11 +745,11 @@
       "LinkName": "BE27750C314AC629",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14
+        6,
+        5,
+        3
       ]
     },
     {
@@ -759,11 +759,11 @@
       "LinkName": "959DCDFA0388AAA0",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14
+        6,
+        5,
+        3
       ]
     },
     {
@@ -773,11 +773,11 @@
       "LinkName": "C19540B8E00E7665",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14
+        6,
+        5,
+        3
       ]
     },
     {
@@ -787,12 +787,12 @@
       "LinkName": "A407C61872649529",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14,
-        4
+        6,
+        5,
+        3,
+        7
       ]
     },
     {
@@ -802,12 +802,12 @@
       "LinkName": "7DDEC7A114FF6210",
       "AssemblyDependencyIndices": [
         17,
+        4,
         2,
-        13,
-        9,
-        0,
-        14,
-        4
+        6,
+        5,
+        3,
+        7
       ]
     },
     {
@@ -816,13 +816,13 @@
       "ModuleHash": "af50348b1f0a4f76987b2603be957315",
       "LinkName": "7F9BDFAB3718C423",
       "AssemblyDependencyIndices": [
-        12,
+        8,
+        4,
+        1,
         2,
-        3,
-        13,
-        9,
-        0,
-        14
+        6,
+        5,
+        3
       ]
     },
     {
@@ -831,15 +831,15 @@
       "ModuleHash": "85d96e49daedfd5005cc52d107bdfeab",
       "LinkName": "7D2E04AB7759F565",
       "AssemblyDependencyIndices": [
-        12,
+        8,
+        4,
+        5,
+        1,
+        6,
         2,
-        0,
-        3,
         9,
-        13,
-        11,
-        14,
-        4
+        3,
+        7
       ]
     },
     {
@@ -848,15 +848,15 @@
       "ModuleHash": "1cbdadae97bb4f33fd539283afeeaa73",
       "LinkName": "4E9252389FAD9FEE",
       "AssemblyDependencyIndices": [
-        12,
+        8,
+        4,
+        5,
+        1,
         2,
-        0,
-        3,
-        13,
+        6,
         9,
-        11,
-        14,
-        4
+        3,
+        7
       ]
     },
     {
@@ -865,14 +865,14 @@
       "ModuleHash": "b7c8aee030b21471cd229ace480f9d2e",
       "LinkName": "4C542F1631655C96",
       "AssemblyDependencyIndices": [
-        12,
+        8,
+        4,
+        1,
+        6,
         2,
+        5,
         3,
-        9,
-        13,
-        0,
-        14,
-        4
+        7
       ]
     },
     {
@@ -881,14 +881,14 @@
       "ModuleHash": "5b9e5a116734445e97d84b691be9fdf6",
       "LinkName": "0DF0BB6E3E9C95ED",
       "AssemblyDependencyIndices": [
-        12,
+        8,
+        4,
+        1,
+        6,
         2,
-        3,
         9,
-        13,
-        11,
-        0,
-        14
+        5,
+        3
       ]
     },
     {
@@ -897,14 +897,14 @@
       "ModuleHash": "e25acf8eb8c28ed88001608bcab8c40a",
       "LinkName": "9C009FC40CDEA715",
       "AssemblyDependencyIndices": [
-        12,
+        8,
+        4,
         2,
-        13,
+        6,
+        1,
         9,
-        3,
-        11,
-        0,
-        14
+        5,
+        3
       ]
     },
     {
@@ -913,15 +913,15 @@
       "ModuleHash": "f410ce77aebc90c9d724b940d52c5e3f",
       "LinkName": "1275254E9CEB788C",
       "AssemblyDependencyIndices": [
-        12,
+        8,
+        4,
+        1,
+        5,
+        6,
         2,
-        3,
-        0,
         9,
-        13,
-        11,
-        14,
-        4
+        3,
+        7
       ]
     }
   ]
