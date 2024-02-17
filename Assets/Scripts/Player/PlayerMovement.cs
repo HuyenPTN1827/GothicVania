@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour {
     public Rigidbody2D RB { get; private set; }
     //Script to handle all player animations, all references can be safely removed if you're importing into your own project.
     //public PlayerAnimator AnimHandler { get; private set; }
+
+    public PlayerHealth Health;
     #endregion
 
     #region STATE PARAMETERS
@@ -60,7 +62,7 @@ public class PlayerMovement : MonoBehaviour {
 
     #region INPUT PARAMETERS
     private Vector2 _moveInput;
-
+    public bool LockInput;
     public float LastPressedJumpTime { get; private set; }
     public float LastPressedDashTime { get; private set; }
     #endregion
@@ -85,6 +87,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Awake() {
         RB = GetComponent<Rigidbody2D>();
+        Health = GetComponent<PlayerHealth>();
         //AnimHandler = GetComponent<PlayerAnimator>();
     }
 
@@ -94,21 +97,25 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void OnMove(InputAction.CallbackContext context) {
-        _moveInput.x = context.ReadValue<Vector2>().x;
+        if (!LockInput) _moveInput.x = context.ReadValue<Vector2>().x;
     }
 
     public void OnJump(InputAction.CallbackContext context) {
-        if (context.started) {
-            OnJumpInput();
-        }
-        if (context.canceled) {
-            OnJumpUpInput();
+        if (!LockInput) {
+            if (context.started) {
+                OnJumpInput();
+            }
+            if (context.canceled) {
+                OnJumpUpInput();
+            }
         }
     }
 
-    public void OnDash (InputAction.CallbackContext context) {
-        if (context.started) { 
-            OnDashInput();
+    public void OnDash(InputAction.CallbackContext context) {
+        if (!LockInput) {
+            if (context.started) {
+                OnDashInput();
+            }
         }
     }
 
@@ -124,6 +131,8 @@ public class PlayerMovement : MonoBehaviour {
         #endregion
 
         #region INPUT HANDLER
+        if (LockInput) _moveInput = Vector2.zero;
+
         //_moveInput.x = Input.GetAxisRaw("Horizontal");
         _moveInput.y = Input.GetAxisRaw("Vertical");
 
@@ -144,6 +153,12 @@ public class PlayerMovement : MonoBehaviour {
         #endregion
 
         #region COLLISION CHECKS
+        //Ground Check
+        if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer)) //checks if set box overlaps with ground
+        {
+            Animator.SetBool("OnGround", true);
+        }
+        else Animator.SetBool("OnGround", false);
         if (!IsDashing && !IsJumping) {
             //Ground Check
             if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer)) //checks if set box overlaps with ground
@@ -153,9 +168,7 @@ public class PlayerMovement : MonoBehaviour {
                 }
 
                 LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
-                Animator.SetBool("OnGround", true);
             }
-            else Animator.SetBool("OnGround", false);
 
             //Right Wall Check
             if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && IsFacingRight)
@@ -179,7 +192,7 @@ public class PlayerMovement : MonoBehaviour {
             else BlockRightMovement = false;
             //Left check (for if player is being knock back)
             if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _monsterLayer) && !IsFacingRight)
-                    || (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _monsterLayer) && IsFacingRight)) && !IsWallJumping) { 
+                    || (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _monsterLayer) && IsFacingRight)) && !IsWallJumping) {
                 BlockLeftMovement = true;
             }
             else BlockLeftMovement = false;
@@ -301,6 +314,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        if (LockInput) return;
         //Handle Run
         if (!IsDashing) {
             if (IsWallJumping)
@@ -396,7 +410,7 @@ public class PlayerMovement : MonoBehaviour {
 
         //Convert this to a vector and apply to rigidbody
         RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
-        
+
         /*
 		 * For those interested here is what AddForce() will do
 		 * RB.velocity = new Vector2(RB.velocity.x + (Time.fixedDeltaTime  * speedDif * accelRate) / RB.mass, RB.velocity.y);
@@ -571,6 +585,13 @@ public class PlayerMovement : MonoBehaviour {
     }
     #endregion
 
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (LayerMask.LayerToName(collision.gameObject.layer).Equals("Monster")) {
+            Vector2 direction = (collision.transform.position - transform.position).normalized;
+            direction = new Vector2(Health.knockbackVertical.x * (direction.x < 0 ? 1 : -1), Health.knockbackVertical.y);
+            Health.DamageWithKnockback(Health.knocbackDamage, direction, Health.knockbackStrength);
+        }
+    }
 
     #region EDITOR METHODS
     private void OnDrawGizmosSelected() {

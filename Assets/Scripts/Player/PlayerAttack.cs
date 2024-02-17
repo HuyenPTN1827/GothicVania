@@ -20,9 +20,8 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField] private float _attackRange = 1.5f;
     [SerializeField] private float _playerDamage = 1f;
     [SerializeField] private float _attackCooldown = 1f;
-    [SerializeField] private float _hitStrengthMultiplier = 0.05f;
-    [SerializeField] private float _attackSpeed = 1f;
     [SerializeField] private bool _hitKnockback = false;
+    [SerializeField] private float _hitStrength = 100f;
     [SerializeField] private string _attackName;
 
     private List<IDamageable> _damageables;
@@ -65,6 +64,7 @@ public class PlayerAttack : MonoBehaviour {
         while (_isAttacking) {
             var hits = Physics2D.CircleCastAll(_attackTransform.position, _attackRange, transform.right, 0f, _monsterLayer);
             foreach (var hit in hits) {
+                if (hit == null) continue;
                 IDamageable damageable = hit.collider.gameObject.GetComponent<IDamageable>();
                 if (!_damageables.Contains(damageable) && damageable != null) _damageables.Add(damageable);
                 if (!_playerMovement.IsDashing) ExecuteHit();
@@ -77,8 +77,9 @@ public class PlayerAttack : MonoBehaviour {
     private void ExecuteHit(Vector2? position = null) {
         foreach (var damageable in _damageables) {
             if (damageable != null) {
-                if (_hitKnockback) damageable.DamageWithKnockback(_playerDamage, position??transform.position, CalculateHitStrength());
-                else damageable.Damage(_playerDamage);
+                Debug.Log("hit");
+                if (_hitKnockback) damageable?.DamageWithKnockback(_playerDamage, position??transform.position, CalculateHitStrength());
+                else damageable?.Damage(_playerDamage);
             }
         }
         _isAttacking = false;
@@ -86,7 +87,7 @@ public class PlayerAttack : MonoBehaviour {
         _attackTimer = _attackCooldown;
     }
 
-    private float CalculateHitStrength() => Mathf.Log(_playerDamage, Mathf.Log(_playerDamage));
+    private float CalculateHitStrength() => _hitStrength;
 
     private void ShouldRecordHit() {
         _isAttacking = true;

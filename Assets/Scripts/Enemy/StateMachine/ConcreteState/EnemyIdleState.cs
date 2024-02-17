@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu]
 public class EnemyIdleState : EnemyState {
-    public EnemyIdleState(Enemy _enemy, EnemyStateMachine _enemyStateMachine) : base(_enemy, _enemyStateMachine) {
-    }
-
     public override void AnimationTriggerEvents(Enemy.AnimationTriggerType type) {
         base.AnimationTriggerEvents(type);
     }
