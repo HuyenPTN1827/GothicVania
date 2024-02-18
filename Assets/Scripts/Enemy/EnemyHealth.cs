@@ -37,7 +37,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable {
         enemy.Anim.SetTrigger("Die");
     }
 
-    public void SelfKill() => Destroy(transform.parent.gameObject);
+    public void SelfKill() => Destroy(transform.gameObject);
 
     public void OnDestroy() {
         

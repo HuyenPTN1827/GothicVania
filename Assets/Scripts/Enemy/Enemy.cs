@@ -72,6 +72,7 @@ public class Enemy : MonoBehaviour {
 
     void Start() {
         Path.maxSpeed = Speed;
+        if (!ApplyGravity) Path.gravity = Vector3.zero;
 
         IdleStateInstance.Initialize(gameObject, this);
         AggroStateInstance.Initialize(gameObject, this);

@@ -385,6 +385,7 @@
 "Assets/Scripts/Enemy/Attacks/AttackLogic.cs"
 "Assets/Scripts/Enemy/Enemy.cs"
 "Assets/Scripts/Enemy/EnemyHealth.cs"
+"Assets/Scripts/Enemy/EnemyVariety/Burrower/BurrowerIdleState.cs"
 "Assets/Scripts/Enemy/EnemyVariety/LungeAttack/LungeAttack.cs"
 "Assets/Scripts/Enemy/EnemyVariety/Patroller/PatrollerIdleState.cs"
 "Assets/Scripts/Enemy/StateMachine/ConcreteState/EnemyAggroState.cs"

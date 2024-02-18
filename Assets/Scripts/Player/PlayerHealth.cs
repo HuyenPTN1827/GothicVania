@@ -70,7 +70,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
         var monsterLayer = LayerMask.NameToLayer("Monster");
         var collider = GetComponent<BoxCollider2D>();
         if (Physics2D.OverlapBox(transform.position, collider.size, 0f, monsterLayer)) {
-            var hits = Physics2D.BoxCastAll(transform.position, collider.size, 0f, Vector2.zero, 0f, monsterLayer);
+            var hits = Physics2D.BoxCastAll(transform.position + new Vector3(collider.offset.x * transform.localScale.x, collider.offset.y * transform.localScale.y, 0f), (collider.size * transform.localScale), 0f, Vector2.zero, 0f, monsterLayer);
             foreach (var hit in hits) {
                 if (hit != null) {
                     Vector2 direction = (hit.transform.position - transform.position).normalized;
@@ -80,7 +80,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
                 }
             }
         }
-        Physics2D.IgnoreLayerCollision(gameObject.layer, monsterLayer, false);
+        else Physics2D.IgnoreLayerCollision(gameObject.layer, monsterLayer, false);
+    }
+
+    private void OnDrawGizmos() {
+        //var collider = GetComponent<BoxCollider2D>();
+        //Gizmos.DrawWireCube(transform.position + new Vector3(collider.offset.x * transform.localScale.x, collider.offset.y * transform.localScale.y, 0f), (collider.size * transform.localScale) );
     }
 
     private void StartRecovery() {

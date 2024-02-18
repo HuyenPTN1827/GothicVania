@@ -13,7 +13,7 @@ public class EnemyAggroState : EnemyState {
     public float ChaseVisionMultiplier;
     public float BoundaryRadius;
 
-    public bool IsOutOfBound;
+    protected bool IsOutOfBound;
 
     private float _retentionTime;
     private GameObject LastPlayerPosition;
@@ -42,6 +42,7 @@ public class EnemyAggroState : EnemyState {
         enemy.Path.maxSpeed *= ChaseSpeedMultiplier;
         enemy.VisionRange *= ChaseVisionMultiplier;
 
+        enemy.DestinationSetter.target = LastPlayerPosition.transform;
     }
 
     public override void ExitState() {
@@ -89,7 +90,7 @@ public class EnemyAggroState : EnemyState {
 
         Gizmos.DrawSphere(LastPlayerPosition.transform.position, 0.1f);
 
-        Gizmos.DrawWireSphere(_anchor.position, BoundaryRadius);
+        if (_anchor != null)Gizmos.DrawWireSphere(_anchor.position, BoundaryRadius);
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(enemy.AttackStateInstance.AttackPosition.transform.position, enemy.AttackStateInstance.AttackRange);
