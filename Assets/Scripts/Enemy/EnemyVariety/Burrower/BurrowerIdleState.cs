@@ -13,18 +13,31 @@ public class BurrowerIdleState : EnemyIdleState {
     [SerializeField] public float BurrowVisionModifier;
     [SerializeField] public float BurrowAwarenessModifier;
 
+    #region Check Values
     GameObject _burrowSpot;
     bool _isBetweenAnims = false;
     bool _isSleeping = false;
+    #endregion
 
+    #region Stored values
     float _speed;
     float _vision;
     float _aware;
+    Vector2 _colliderOffset;
+    Vector2 _colliderSize;
+    #endregion
+
+    public override void EnemyKilled() {
+        base.EnemyKilled();
+        Destroy(_burrowSpot);
+    }
 
     public override void Initialize(GameObject gameObject, Enemy enemy) {
         base.Initialize(gameObject, enemy);
 
+
         _burrowSpot = new GameObject();
+        _burrowSpot.name = "Burrow " + enemy.name;
         _burrowSpot.transform.parent = enemy.transform.parent;
         _burrowSpot.transform.position = enemy.transform.position;
     }
@@ -32,9 +45,12 @@ public class BurrowerIdleState : EnemyIdleState {
     public override void EnterState() {
         base.EnterState();
         _speed = enemy.Speed;
-        _vision = enemy.AwarenessRadius;
-        _aware = enemy.VisionRange;
+        _vision = enemy.VisionRange;
+        _colliderOffset = enemy.GetComponent<BoxCollider2D>().offset;
+        _colliderSize = enemy.GetComponent<BoxCollider2D>().size;
+        _aware = enemy.AwarenessRadius;
 
+        Debug.Log(_aware);
         enemy.StartCoroutine(GoToSleep());
 
     }
@@ -43,6 +59,10 @@ public class BurrowerIdleState : EnemyIdleState {
 
         enemy.DestinationSetter.target = _burrowSpot.transform;
         while (!enemy.Path.reachedDestination) {
+            if (enemy.DetectedPlayer && !enemy.AggroStateInstance.CheckOutOfBound() && !enemy.AggroStateInstance.IsPositionOutOfBound(playerTransform.position)) {
+                enemy.StateMachine.ChangeState(enemy.AggroStateInstance);
+                yield break;
+            }
             if (enemy.ApplyGravity) {
                 var enemyPos = enemy.transform.position;
                 var burrowPos = _burrowSpot.transform.position;
@@ -55,9 +75,6 @@ public class BurrowerIdleState : EnemyIdleState {
 
         enemy.DestinationSetter.target = null;
 
-        enemy.Speed *= BurrowSpeedModifier;
-        enemy.AwarenessRadius *= BurrowAwarenessModifier;
-        enemy.VisionRange *= BurrowVisionModifier;
 
         enemy.Anim.SetTrigger("Unrise");
 
@@ -68,6 +85,12 @@ public class BurrowerIdleState : EnemyIdleState {
         yield return new WaitForSeconds(unrise.clip.length * enemy.Anim.speed);
         _isBetweenAnims = false;
         _isSleeping = true;
+
+        enemy.Collider.offset += Vector2.down * (_colliderSize.y / 2);
+        ((BoxCollider2D)enemy.Collider).size = new Vector2(_colliderSize.x, _colliderSize.y / 6);
+        enemy.Speed *= BurrowSpeedModifier;
+        enemy.AwarenessRadius *= BurrowAwarenessModifier;
+        enemy.VisionRange *= BurrowVisionModifier;
     }
     bool IsClipNameContains(string name) {
         var prior = enemy.Anim.GetCurrentAnimatorClipInfo(0);
@@ -80,7 +103,7 @@ public class BurrowerIdleState : EnemyIdleState {
     public override void FrameUpdate() {
         base.FrameUpdate();
 
-        //Debug.Log(_isBetweenAnims + " " + enemy.AggroStateInstance.CheckOutOfBound());
+        //Debug.Log(enemy.DetectedPlayer + " " + _isBetweenAnims + " " + enemy.AggroStateInstance.CheckOutOfBound());
 
 
         if (enemy.DetectedPlayer && !_isBetweenAnims && !enemy.AggroStateInstance.CheckOutOfBound()) enemy.StartCoroutine(Rise());
@@ -104,8 +127,11 @@ public class BurrowerIdleState : EnemyIdleState {
     public override void ResetValues() {
         base.ResetValues();
 
+        enemy.Collider.offset = _colliderOffset;
+        ((BoxCollider2D) enemy.Collider).size = _colliderSize;
         enemy.Speed = _speed;
         enemy.AwarenessRadius = _aware;
         enemy.VisionRange = _vision;
+
     }
 }

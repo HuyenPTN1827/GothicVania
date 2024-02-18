@@ -23,6 +23,10 @@ public class EnemyAggroState : EnemyState {
         base.AnimationTriggerEvents(type);
     }
 
+    public override void EnemyKilled() {
+        if(LastPlayerPosition != null) Destroy(LastPlayerPosition);
+    }
+
     public override void Initialize(GameObject gameObject, Enemy enemy) {
         base.Initialize(gameObject, enemy);
 
@@ -54,6 +58,7 @@ public class EnemyAggroState : EnemyState {
         if ((xToPlayer < 0 && enemy.IsFacingRight) || (xToPlayer > 0 && !enemy.IsFacingRight)) enemy.Turn();    
     }
 
+
     public override void FrameUpdate() {
         base.FrameUpdate();
         _retentionTime -= Time.deltaTime;
@@ -70,6 +75,11 @@ public class EnemyAggroState : EnemyState {
         if (enemy.DetectedPlayer) _retentionTime = AwareTime;
         if (_retentionTime <= 0 || IsOutOfBound) enemy.StateMachine.ChangeState(enemy.IdleStateInstance);
         if (enemy.AttackStateInstance.IsInRangeForAttack()) enemy.StateMachine.ChangeState(enemy.AttackStateInstance);
+    }
+
+    public bool IsPositionOutOfBound(Vector2 position) {
+        if (_anchor == null) return false;
+        return Vector2.Distance(position, _anchor?.transform.position ?? enemy.transform.position) > BoundaryRadius;
     }
 
     public bool CheckOutOfBound() => Vector2.Distance(enemy.transform.position, _anchor?.transform.position??enemy.transform.position) > BoundaryRadius;

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BurrowerIdleState
   m_EditorClassIdentifier: 
   BurrowSpeedModifier: 0
-  BurrowVisionModifier: 0.5
-  BurrowAwarenessModifier: 2
+  BurrowVisionModifier: 0.1
+  BurrowAwarenessModifier: 2.2

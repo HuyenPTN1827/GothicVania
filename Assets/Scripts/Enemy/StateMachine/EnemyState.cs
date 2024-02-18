@@ -40,7 +40,8 @@ public class EnemyState : ScriptableObject {
     }
     public virtual void AnimationTriggerEvents(Enemy.AnimationTriggerType type) { }
     public virtual void ResetValues() { }
-    public virtual void OnDrawGizmos() { 
+    public virtual void EnemyKilled() { }
+    public virtual void OnDrawGizmos() {
         //Vision
         Gizmos.color = Color.red;
         //Gizmos.DrawWireSphere(enemy.transform.position, enemy.VisionRange * 2);

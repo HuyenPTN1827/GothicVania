@@ -70,11 +70,11 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
     <Compile Include="Assets\Scripts\Player\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Enemy\StateMachine\ConcreteState\EnemyIdleState.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyVariety\Burrower\BurrowerIdleState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyVariety\LungeAttack\LungeAttack.cs" />
     <Compile Include="Assets\Scripts\Enemy\StateMachine\ConcreteState\EnemyAggroState.cs" />
     <Compile Include="Assets\Scripts\Enemy\StateMachine\ConcreteState\EnemyAttackState.cs" />
     <Compile Include="Assets\Scripts\Enemy\Attacks\AttackLogic.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyVariety\Burrower\BurrowerIdleState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Gothicvania Cemetery Artwork\about.txt" />

@@ -47,19 +47,19 @@ public class EnemyHealth : MonoBehaviour, IDamageable {
     }
 
     public void DamageWithKnockback(float damage, Vector2 position, float hitStrength) {
-        StartCoroutine(Recovery());
+        StartCoroutine(Recovery(position, hitStrength));
 
         Damage(damage);
         //StartCoroutine(Knockback(position , hitStrength));
     }
 
-    IEnumerator Recovery() {
+    IEnumerator Recovery(Vector2 position, float hitStrength) {
         var target = enemy.DestinationSetter.target;
         enemy.DestinationSetter.target = null;
         enemy.Path.canMove = false;
         enemy.DestinationSetter.enabled = false;
         enemy.RB.velocity = Vector2.zero;
-        enemy.RB.velocity = Vector2.one * 2f;
+        enemy.RB.velocity = new Vector2(0.1f, 0.9f) * (position.x - enemy.transform.position.x < 0 ? 1 : -1) * hitStrength;
         yield return new WaitForSeconds(_knockbackTime);
         enemy.Path.canMove = true;
         enemy.DestinationSetter.enabled = true;

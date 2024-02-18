@@ -142,6 +142,12 @@ public class Enemy : MonoBehaviour {
         if (StateMachine?.CurrentState != null) StateMachine.CurrentState.OnDrawGizmos();
     }
 
+    private void OnDestroy() {
+        IdleStateInstance.EnemyKilled();
+        AggroStateInstance.EnemyKilled();
+        AttackStateInstance.EnemyKilled();
+    }
+
     public enum AnimationTriggerType {
         Damaged
     }
