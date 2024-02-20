@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{9E918537-6ADA-38FE-7D2C-9067FCE4CE15}</ProjectGuid>
+    <ProjectGuid>{3BB69833-0F1A-BEC6-E574-D31BAEAF639C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.IK.Editor</AssemblyName>
@@ -481,6 +481,10 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Meryel.UnityCodeAssist.YamlDotNet">
@@ -1022,35 +1026,35 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.InternalAPIEditorBridge.001.csproj">
-      <Project>{BD96B99F-3F50-FFF5-7C1A-6CD70150B3B9}</Project>
+      <Project>{E7E18CAE-7222-C267-563E-5DA8ED4C1B32}</Project>
       <Name>Unity.InternalAPIEditorBridge.001</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.InternalAPIEngineBridge.001.csproj">
-      <Project>{9F31B9B9-C347-2E07-3A7B-D5E9B1B1C6A2}</Project>
+      <Project>{945D7E66-0F95-391F-F563-4A2784FB8324}</Project>
       <Name>Unity.InternalAPIEngineBridge.001</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Common.Editor.csproj">
-      <Project>{D160CF3A-33C5-7671-0F08-3BEDE366BF21}</Project>
+      <Project>{B9466413-CEDD-8B00-A520-D5C561686EA6}</Project>
       <Name>Unity.2D.Common.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Common.Runtime.csproj">
-      <Project>{905692BA-9A8B-BCAF-DDC8-D707EBFF7CAB}</Project>
+      <Project>{6DBD2DCE-A2D8-ED7B-7FF8-2BFD95502DB3}</Project>
       <Name>Unity.2D.Common.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.IK.Runtime.csproj">
-      <Project>{E0E5ADBB-8C8C-F0E6-6F86-7785BE263B3F}</Project>
+      <Project>{A657C447-ABDB-F93F-B79F-B2A622C92978}</Project>
       <Name>Unity.2D.IK.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Animation.Editor.csproj">
-      <Project>{7E478201-9C34-F663-6C54-B730DC356722}</Project>
+      <Project>{B1658680-B822-D00D-506B-12172CA9D6EC}</Project>
       <Name>Unity.2D.Animation.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{2C95D781-3D69-8469-59F4-048D72810E26}</Project>
+      <Project>{8B0F4D4E-43A6-C0A0-91B5-467AA59ED9AE}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{49B26FD4-C8A3-DB2D-138F-D65FF650AC57}</Project>
+      <Project>{6EF6809B-BE51-6D5D-8AFA-1ACCE2F8E71E}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>

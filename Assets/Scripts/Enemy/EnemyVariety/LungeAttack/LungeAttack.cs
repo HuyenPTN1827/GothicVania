@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [CreateAssetMenu]
 public class LungeAttack : EnemyAttackState {
@@ -20,10 +21,7 @@ public class LungeAttack : EnemyAttackState {
         _playerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();    
     }
 
-    public override void FrameUpdate() {
-        base.FrameUpdate();
-
-    }
+    public override bool IsInRangeForAttack() => Physics2D.CircleCastAll(AttackPosition.position, AttackRange / 2, -enemy.transform.right * (enemy.IsFacingRight ? - 1: 1), enemy.VisionRange, enemy._playerLayer).Length > 0;
 
     public override void PhysicsUpdate() {
         base.PhysicsUpdate();
@@ -56,6 +54,8 @@ public class LungeAttack : EnemyAttackState {
         enemy.Path.canMove = false;
         enemy.DestinationSetter.enabled = false;
         enemy.RB.velocity = Vector2.zero;
+
+        _lungeVector = (playerTransform.position - enemy.transform.position).normalized * _lungeSpeedMultiplier;
     }
 
     public override void HitStart() {
@@ -65,9 +65,17 @@ public class LungeAttack : EnemyAttackState {
 
         var target = enemy.DestinationSetter.target;
 
-        _lungeVector = (playerTransform.position - enemy.transform.position).normalized * _lungeSpeedMultiplier;
 
         _isAttacking = true;
+    }
+
+    public override void OnDrawGizmos() {
+        base.OnDrawGizmos();
+
+        var direction = -enemy.transform.right * (enemy.IsFacingRight ? -1 : 1) * enemy.Speed * _lungeSpeedMultiplier* 2f;
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(AttackPosition.position, direction);
     }
 
     public override void HitEnd() {

@@ -10,10 +10,10 @@ public class EnemyAttackState : EnemyState {
     [SerializeField] public Transform AttackPosition;
     [SerializeField] public float AttackRange;
     [SerializeField] public float AttackCooldown;
+    [SerializeField] public float Damage;
     [SerializeField] protected bool WaitUntilHitEnd;
-    [SerializeField] protected float Damage;
     [SerializeField] protected Vector2 KnockbackVertical;
-    [SerializeField] protected float KnockbackStrength;
+    [SerializeField] public float KnockbackStrength;
 
     List<GameObject> targets;
     List<GameObject> targetsTotal;
@@ -23,6 +23,8 @@ public class EnemyAttackState : EnemyState {
     public override void AnimationTriggerEvents(Enemy.AnimationTriggerType type) {
         base.AnimationTriggerEvents(type);
     }
+
+    public virtual bool Prerequisite() => true;
 
     public override void Initialize(GameObject gameObject, Enemy enemy) {
         base.Initialize(gameObject, enemy);
@@ -67,6 +69,7 @@ public class EnemyAttackState : EnemyState {
         pos = enemy.transform.position;
 
         enemy.Anim.SetTrigger("Attack");
+        enemy.OnCooldownAttacks.Add(this, 999f);
         _canChangeState = false;
 
         _isOnCooldown = true;
@@ -90,7 +93,6 @@ public class EnemyAttackState : EnemyState {
                 var go = hit.collider.gameObject;
                 if (Physics2D.GetIgnoreLayerCollision(enemy.gameObject.layer, go.layer)) continue;
                 if (targetsTotal.Contains(go) || go.GetComponent<IDamageable>() == null) continue;
-                Debug.Log("Hi");
                 targets.Add(go);
                 targetsTotal.Add(go);
             }
@@ -109,6 +111,7 @@ public class EnemyAttackState : EnemyState {
     }
 
     protected IEnumerator StartAttackCooldown() {
+        enemy.OnCooldownAttacks[this] = AttackCooldown;
         yield return new WaitForSeconds(AttackCooldown);
         _isOnCooldown = false;
     }
@@ -122,8 +125,8 @@ public class EnemyAttackState : EnemyState {
         }
     }
 
-    public bool IsInRangeForAttack() => Physics2D.CircleCastAll
-        (enemy.AttackStateInstance.AttackPosition.position, enemy.AttackStateInstance.AttackRange, -enemy.transform.right, 0f, enemy._playerLayer).Length
+    public virtual bool IsInRangeForAttack() => Physics2D.CircleCastAll
+        (AttackPosition.position, AttackRange, -enemy.transform.right, 0f, enemy._playerLayer).Length
         > 0;
 
     public override void OnDrawGizmos() {

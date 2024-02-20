@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField] private PlayerMovement _playerMovement;
 
     [SerializeField] private float _attackTimer = 0f;
+    [SerializeField] private float _attackRunSpeedModifier;
 
     [Header("Layer & Tags")]
     [SerializeField] private LayerMask _monsterLayer;
@@ -25,7 +26,9 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField] private string _attackName;
 
     private List<IDamageable> _damageables;
-    private bool _isAttacking = false;
+    [SerializeField]private bool _isAttacking = false;
+
+    private float _runSpeed;
 
     // Start is called before the first frame update
     void Start() {
@@ -33,6 +36,14 @@ public class PlayerAttack : MonoBehaviour {
         _animator = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>();
         _playerMovement = GetComponent<PlayerMovement>();
+
+        _runSpeed = _playerMovement.Data.runMaxSpeed;
+    }
+
+    private void Update() {
+        if (_isAttacking) {
+            RB.velocity *= _attackRunSpeedModifier;
+        }
     }
 
     // Update is called once per frame
@@ -77,7 +88,6 @@ public class PlayerAttack : MonoBehaviour {
     private void ExecuteHit(Vector2? position = null) {
         foreach (var damageable in _damageables) {
             if (damageable != null) {
-                Debug.Log("hit");
                 if (_hitKnockback) damageable?.DamageWithKnockback(_playerDamage, position??transform.position, CalculateHitStrength());
                 else damageable?.Damage(_playerDamage);
             }

@@ -50,7 +50,6 @@ public class BurrowerIdleState : EnemyIdleState {
         _colliderSize = enemy.GetComponent<BoxCollider2D>().size;
         _aware = enemy.AwarenessRadius;
 
-        Debug.Log(_aware);
         enemy.StartCoroutine(GoToSleep());
 
     }

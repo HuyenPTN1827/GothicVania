@@ -1,6 +1,7 @@
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
@@ -47,11 +48,19 @@ public class Enemy : MonoBehaviour {
     [Header("States")]
     [SerializeField] EnemyIdleState IdleState;
     [SerializeField] EnemyAggroState AggroState;
-    [SerializeField] EnemyAttackState AttackState;
+    //[SerializeField] EnemyAttackState AttackState;
+    [SerializeField] List<EnemyAttackState> AttackStates;
+    [SerializeField] EnemyRetreatState RetreatState;
 
     public EnemyIdleState IdleStateInstance { get; set; }
     public EnemyAggroState AggroStateInstance { get; set; }
-    public EnemyAttackState AttackStateInstance { get; set; }
+    //public EnemyAttackState AttackStateInstance { get; set; }
+    public EnemyRetreatState RetreatStateInstance { get; set; }
+    public List<EnemyAttackState> AttackStateInstances { get; set; }
+
+    public Dictionary<EnemyAttackState, float> OnCooldownAttacks { get; set; }
+    [SerializeField] public float DelayBetweenAttacks;
+    [SerializeField] public bool CanAttack;
     #endregion
 
     void Awake() {
@@ -64,19 +73,27 @@ public class Enemy : MonoBehaviour {
         Path = GetComponent<AIPath>();
         DestinationSetter = GetComponent<AIDestinationSetter>();
 
+        AttackStateInstances = new List<EnemyAttackState>();
+        OnCooldownAttacks = new Dictionary<EnemyAttackState, float>();
 
         IdleStateInstance = Instantiate(IdleState);
         AggroStateInstance = Instantiate(AggroState);
-        AttackStateInstance = Instantiate(AttackState);
+        //AttackStateInstance = Instantiate(AttackState);
+        foreach (var attackState in AttackStates) AttackStateInstances.Add(Instantiate(attackState));
+        RetreatStateInstance = Instantiate(RetreatState);
     }
 
     void Start() {
         Path.maxSpeed = Speed;
         if (!ApplyGravity) Path.gravity = Vector3.zero;
 
+        CanAttack = true;
+
         IdleStateInstance.Initialize(gameObject, this);
         AggroStateInstance.Initialize(gameObject, this);
-        AttackStateInstance.Initialize(gameObject, this);
+        //AttackStateInstance.Initialize(gameObject, this);
+        foreach (var attackState in AttackStateInstances) attackState.Initialize(gameObject, this);
+        RetreatStateInstance.Initialize(gameObject, this);
 
         StateMachine.Initialize(IdleStateInstance);
 
@@ -84,6 +101,10 @@ public class Enemy : MonoBehaviour {
     }
 
     void Update() {
+        foreach (var key in OnCooldownAttacks.Keys.ToList()) {
+            OnCooldownAttacks[key] -= Time.deltaTime;
+            if (OnCooldownAttacks[key] <= 0) OnCooldownAttacks.Remove(key);
+        }
         StateMachine.CurrentState.FrameUpdate();
     }
 
@@ -145,7 +166,8 @@ public class Enemy : MonoBehaviour {
     private void OnDestroy() {
         IdleStateInstance.EnemyKilled();
         AggroStateInstance.EnemyKilled();
-        AttackStateInstance.EnemyKilled();
+        //AttackStateInstance.EnemyKilled();
+        foreach (var attack in AttackStateInstances) attack.EnemyKilled();
     }
 
     public enum AnimationTriggerType {

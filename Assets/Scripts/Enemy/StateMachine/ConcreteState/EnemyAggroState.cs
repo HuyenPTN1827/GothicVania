@@ -74,12 +74,43 @@ public class EnemyAggroState : EnemyState {
         _retentionTime -= Time.deltaTime;
         if (enemy.DetectedPlayer) _retentionTime = AwareTime;
         if (_retentionTime <= 0 || IsOutOfBound) enemy.StateMachine.ChangeState(enemy.IdleStateInstance);
-        if (enemy.AttackStateInstance.IsInRangeForAttack()) enemy.StateMachine.ChangeState(enemy.AttackStateInstance);
+        if (AvailableAttacks().Count == 0) enemy.StateMachine.ChangeState(enemy.RetreatStateInstance);
+        if (TryChooseAttack(out var attack)) enemy.StateMachine.ChangeState(attack);
     }
 
     public bool IsPositionOutOfBound(Vector2 position) {
         if (_anchor == null) return false;
         return Vector2.Distance(position, _anchor?.transform.position ?? enemy.transform.position) > BoundaryRadius;
+    }
+
+    public virtual List<EnemyAttackState> AvailableAttacks() {
+        List<EnemyAttackState> attacks = new List<EnemyAttackState>();
+        foreach (var a in enemy.AttackStateInstances) {
+            if (enemy.OnCooldownAttacks.ContainsKey(a)) continue;
+            attacks.Add(a);
+        }
+        return attacks;
+    }
+
+    public virtual List<EnemyAttackState> AvailableAttacksInRange() {
+        List<EnemyAttackState> attacks = new List<EnemyAttackState>();
+        foreach (var attack in AvailableAttacks()) {
+            if (attack.IsInRangeForAttack()) attacks.Add(attack);
+        }
+        return attacks;
+    }
+
+    public virtual bool TryChooseAttack(out EnemyAttackState attack) {
+        attack = null;
+
+        var attacks = AvailableAttacksInRange();
+
+        attacks = attacks.OrderByDescending(e => e.Damage).ThenBy(e => e.AttackCooldown).ThenByDescending(e => e.KnockbackStrength).ToList();
+
+        foreach (var att in attacks) if (att.Prerequisite()) attack = att;
+
+        if (attack == null) return false;
+        return true;
     }
 
     public bool CheckOutOfBound() => Vector2.Distance(enemy.transform.position, _anchor?.transform.position??enemy.transform.position) > BoundaryRadius;
@@ -102,8 +133,8 @@ public class EnemyAggroState : EnemyState {
 
         if (_anchor != null)Gizmos.DrawWireSphere(_anchor.position, BoundaryRadius);
 
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(enemy.AttackStateInstance.AttackPosition.transform.position, enemy.AttackStateInstance.AttackRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(enemy.transform.position, enemy.RetreatStateInstance.SafeDistance);
 
     }
 
