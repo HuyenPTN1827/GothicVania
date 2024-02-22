@@ -59,6 +59,7 @@ public class PatrollerIdleState : EnemyIdleState {
     }
 
     private Transform GetNextPoint() {
+        if (list.Count == 1) return _destination;
         switch (patrolType) {
             case PatrolType.Cycle:
                 int c_Index = list.IndexOf(_destination);

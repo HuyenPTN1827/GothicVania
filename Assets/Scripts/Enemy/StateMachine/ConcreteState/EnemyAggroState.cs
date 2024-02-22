@@ -33,6 +33,11 @@ public class EnemyAggroState : EnemyState {
         IsOutOfBound = false;
 
         _anchor = enemy.Checks.Where(e => e.name.Contains("anchor")).FirstOrDefault()?.transform;
+        if (_anchor != null) {
+            Debug.Log("Anchor not null");
+        }
+        else
+            Debug.Log("Anchor null");
     }
 
     public override void EnterState() {
@@ -67,8 +72,7 @@ public class EnemyAggroState : EnemyState {
 
         if (enemy.DetectedPlayer) {
             _retentionTime = AwareTime;
-            LastPlayerPosition.transform.position = new Vector2(playerTransform.position.x, playerTransform.position.y);
-            enemy.DestinationSetter.target = LastPlayerPosition.transform;
+            LastPlayerPosition.transform.position = UpdateDestination();
         }
 
         _retentionTime -= Time.deltaTime;
@@ -78,6 +82,8 @@ public class EnemyAggroState : EnemyState {
         if (TryChooseAttack(out var attack)) enemy.StateMachine.ChangeState(attack);
     }
 
+    protected virtual Vector2 UpdateDestination() => new Vector2(playerTransform.position.x, playerTransform.position.y);
+
     public bool IsPositionOutOfBound(Vector2 position) {
         if (_anchor == null) return false;
         return Vector2.Distance(position, _anchor?.transform.position ?? enemy.transform.position) > BoundaryRadius;
@@ -86,7 +92,7 @@ public class EnemyAggroState : EnemyState {
     public virtual List<EnemyAttackState> AvailableAttacks() {
         List<EnemyAttackState> attacks = new List<EnemyAttackState>();
         foreach (var a in enemy.AttackStateInstances) {
-            if (enemy.OnCooldownAttacks.ContainsKey(a)) continue;
+            if (enemy.OnCooldownAttacks.ContainsKey(a) || !a.Prerequisite()) continue;
             attacks.Add(a);
         }
         return attacks;

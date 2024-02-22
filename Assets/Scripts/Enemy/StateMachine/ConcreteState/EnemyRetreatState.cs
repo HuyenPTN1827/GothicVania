@@ -22,6 +22,7 @@ public class EnemyRetreatState : EnemyState {
         _safety = new GameObject();
         _safety.name = "Safety";
         _safety.transform.position = GetSafePosition();
+        _safety.transform.parent = enemy.transform.parent;
 
         _speed = enemy.Speed;
 
@@ -34,8 +35,8 @@ public class EnemyRetreatState : EnemyState {
         if (Vector2.Distance(enemy.transform.position, playerTransform.position) < SafeDistance) {
             return (enemy.transform.position - playerTransform.position).normalized * SafeDistance + enemy.transform.position;
         }
-        else if (Vector2.Distance(enemy.transform.position, playerTransform.position) > SafeDistance * 1.2f) {
-            return (playerTransform.position - enemy.transform.position).normalized * SafeDistance *1.2f + enemy.transform.position;
+        else if (Vector2.Distance(enemy.transform.position, playerTransform.position) > SafeDistance * CatchUpDistanceMultiplier) {
+            return (playerTransform.position - enemy.transform.position).normalized * SafeDistance *CatchUpDistanceMultiplier + enemy.transform.position;
         }
         return enemy.transform.position;
         //return Mathf.Abs(enemy.VisionRange - SafeDistance) / 2 * (playerTransform.position -enemy.transform.position).normalized + enemy.transform.position;
@@ -51,7 +52,7 @@ public class EnemyRetreatState : EnemyState {
             enemy.Speed = (enemy.Speed * RetreatSpeedModifier) * (ratio + 1f);
         }
 
-            if (enemy.VisionRange <= SafeDistance) Debug.LogWarning("Safe distance must be smaller than Vision Range");
+            if (enemy.VisionRange <= SafeDistance && enemy.AwarenessRadius <= SafeDistance) Debug.LogWarning("Safe distance must be smaller than Vision Range");
         _safety.transform.position = GetSafePosition();
 
         if (_cooldownCount != enemy.OnCooldownAttacks.Count) enemy.StateMachine.ChangeState(enemy.AggroStateInstance);
@@ -69,6 +70,8 @@ public class EnemyRetreatState : EnemyState {
 
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(enemy.transform.position, SafeDistance);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(enemy.transform.position, SafeDistance * CatchUpDistanceMultiplier);
         if (_safety != null) Gizmos.DrawSphere(_safety.transform.position, 0.1f);
     }
 
@@ -79,6 +82,12 @@ public class EnemyRetreatState : EnemyState {
 
         enemy.DestinationSetter.target = null;
         Destroy(_safety);
+    }
+
+    public override void EnemyKilled() {
+        base.EnemyKilled();
+
+        if (_safety != null) Destroy(_safety);
     }
 
 }
