@@ -1326,7 +1326,7 @@ PrefabInstance:
     - target: {fileID: 2331590215241134403, guid: 4cc542d7a0e5fba4da51072e041bdccf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -746269360, guid: 776754cbb968876459eb24c6aa74e3d0, type: 3}
+      objectReference: {fileID: -471362937, guid: 6b051575a2a02fe48a6703463375c6e9, type: 3}
     - target: {fileID: 2331590215241134404, guid: 4cc542d7a0e5fba4da51072e041bdccf, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1373,7 +1373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2331590215241134405, guid: 4cc542d7a0e5fba4da51072e041bdccf, type: 3}
       propertyPath: m_Name
-      value: Hell Beast
+      value: Demon
       objectReference: {fileID: 0}
     - target: {fileID: 2331590215241134429, guid: 4cc542d7a0e5fba4da51072e041bdccf, type: 3}
       propertyPath: radius
@@ -1382,7 +1382,7 @@ PrefabInstance:
     - target: {fileID: 2331590215241134430, guid: 4cc542d7a0e5fba4da51072e041bdccf, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 14d86a49b2614fd42a39377ebbcfd97a, type: 2}
+      objectReference: {fileID: 9100000, guid: e753da15492df7447926fcb4a0c21d21, type: 2}
     - target: {fileID: 2331590215241134431, guid: 4cc542d7a0e5fba4da51072e041bdccf, type: 3}
       propertyPath: Speed
       value: 0.3
