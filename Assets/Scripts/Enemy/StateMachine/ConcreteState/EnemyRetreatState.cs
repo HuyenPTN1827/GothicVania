@@ -13,6 +13,7 @@ public class EnemyRetreatState : EnemyState {
 
     int _cooldownCount;
     float _speed;
+    float _attackDelay;
 
     GameObject _safety;
 
@@ -27,6 +28,7 @@ public class EnemyRetreatState : EnemyState {
         _speed = enemy.Speed;
 
         _cooldownCount = enemy.OnCooldownAttacks.Count;
+        _attackDelay = enemy.DelayBetweenAttacks;
 
         enemy.DestinationSetter.target = _safety.gameObject.transform;
     }
@@ -44,6 +46,7 @@ public class EnemyRetreatState : EnemyState {
 
     public override void FrameUpdate() {
         base.FrameUpdate();
+        _attackDelay -= Time.deltaTime;
 
 
         if (Vector2.Distance(enemy.transform.position, playerTransform.position) < SafeDistance) {
@@ -55,7 +58,7 @@ public class EnemyRetreatState : EnemyState {
             if (enemy.VisionRange <= SafeDistance && enemy.AwarenessRadius <= SafeDistance) Debug.LogWarning("Safe distance must be smaller than Vision Range");
         _safety.transform.position = GetSafePosition();
 
-        if (_cooldownCount != enemy.OnCooldownAttacks.Count) enemy.StateMachine.ChangeState(enemy.AggroStateInstance);
+        if (_cooldownCount != enemy.OnCooldownAttacks.Count && _attackDelay < 0) enemy.StateMachine.ChangeState(enemy.AggroStateInstance);
     }
 
     //public override void TurnCheck() {

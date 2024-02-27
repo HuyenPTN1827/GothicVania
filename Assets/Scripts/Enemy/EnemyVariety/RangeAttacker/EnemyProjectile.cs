@@ -43,7 +43,6 @@ public class EnemyProjectile : MonoBehaviour {
 
         transform.Rotate(0f, 0f, (Vector2.SignedAngle(transform.position - (transform.position + Vector3.down), transform.position - _playerPosition.position) - transform.rotation.z) * (enemy.IsFacingRight ? -1 : 1));
 
-        Debug.Log(Vector2.SignedAngle(enemy.transform.position - (enemy.transform.position + Vector3.up), enemy.transform.position - _playerPosition.position));
         _currentDirection = (_playerPosition.position - transform.position).normalized;
 
         _heading = (_playerPosition.position - transform.position).normalized;

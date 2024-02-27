@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
     [Header("Components")]
+    public string CurrentStateName;
     public Rigidbody2D RB;
     public Collider2D Collider;
     public EnemyHealth EnemyHealth;
@@ -106,6 +107,7 @@ public class Enemy : MonoBehaviour {
             if (OnCooldownAttacks[key] <= 0) OnCooldownAttacks.Remove(key);
         }
         StateMachine.CurrentState.FrameUpdate();
+        CurrentStateName = StateMachine.CurrentState.ToString();
     }
 
     void FixedUpdate() {

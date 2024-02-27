@@ -112,7 +112,6 @@ public class BurrowerIdleState : EnemyIdleState {
         if (!_isSleeping) yield break;
         _isSleeping = false;
         enemy.Anim.SetTrigger("Rise");
-        Debug.Log("Hi");
         _isBetweenAnims = true;
         while (!IsClipNameContains("rise")) yield return null;
 

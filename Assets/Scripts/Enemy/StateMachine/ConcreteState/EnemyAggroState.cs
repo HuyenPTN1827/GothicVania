@@ -33,11 +33,6 @@ public class EnemyAggroState : EnemyState {
         IsOutOfBound = false;
 
         _anchor = enemy.Checks.Where(e => e.name.Contains("anchor")).FirstOrDefault()?.transform;
-        if (_anchor != null) {
-            Debug.Log("Anchor not null");
-        }
-        else
-            Debug.Log("Anchor null");
     }
 
     public override void EnterState() {
@@ -139,8 +134,8 @@ public class EnemyAggroState : EnemyState {
 
         if (_anchor != null)Gizmos.DrawWireSphere(_anchor.position, BoundaryRadius);
 
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(enemy.transform.position, enemy.RetreatStateInstance.SafeDistance);
+        //Gizmos.color = Color.green;
+        //Gizmos.DrawWireSphere(enemy.transform.position, enemy.RetreatStateInstance.SafeDistance);
 
     }
 

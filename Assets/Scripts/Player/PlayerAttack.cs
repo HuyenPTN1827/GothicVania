@@ -63,11 +63,11 @@ public class PlayerAttack : MonoBehaviour {
 
     private IEnumerator Attack() {
         _animator.SetTrigger("Attack");
+        foreach (var clip in _animator.GetCurrentAnimatorClipInfo(0)) if (clip.clip.name.Equals(_attackName)) _attackTimer = clip.clip.length;
         while (!_animator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Equals(_attackName)) {
             _attackTimer = 1f;
             yield return null;
         }
-        foreach (var clip in _animator.GetCurrentAnimatorClipInfo(0)) if (clip.clip.name.Equals(_attackName)) _attackTimer = clip.clip.length;
     }
 
     private IEnumerator StartHitting() {
