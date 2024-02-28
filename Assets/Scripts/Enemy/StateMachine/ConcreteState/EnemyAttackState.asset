@@ -15,7 +15,8 @@ MonoBehaviour:
   AttackPosition: {fileID: 0}
   AttackRange: 1
   AttackCooldown: 3
-  WaitUntilHitEnd: 0
+  AttackAnimTrigger: Attack
   Damage: 0
+  WaitUntilHitEnd: 0
   KnockbackVertical: {x: 0, y: 0}
   KnockbackStrength: 0

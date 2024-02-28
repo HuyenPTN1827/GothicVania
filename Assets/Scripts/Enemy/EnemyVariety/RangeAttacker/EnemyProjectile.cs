@@ -27,7 +27,6 @@ public class EnemyProjectile : MonoBehaviour {
     protected virtual void Start() {
         anim = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>();
-        SpawnProjectile();
     }
 
     public void Initialize(EnemyAttackState attackState) {
@@ -37,6 +36,7 @@ public class EnemyProjectile : MonoBehaviour {
         HitStrength = attackState.KnockbackStrength;
         _playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
         this.enemy = attackState.enemy;
+        SpawnProjectile();
     }
 
     protected virtual void SpawnProjectile() {
@@ -55,12 +55,12 @@ public class EnemyProjectile : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (_isFlying) {
+        if (_isFlying && _shoot) {
             if (TrackPlayer) {
-                var headingToPlayer = (_playerPosition.position - transform.position).normalized;
-                _heading = (_heading + (Vector2)(headingToPlayer * SteeringSpeed / 100f)).normalized;
-                transform.Rotate(0f, 0f, Vector2.SignedAngle(transform.position, _playerPosition.position) - transform.rotation.z);
-                _currentDirection = headingToPlayer;
+                //var headingToPlayer = (_playerPosition.position - transform.position).normalized;
+                //_heading = (_heading + (Vector2)(headingToPlayer * SteeringSpeed / 100f)).normalized;
+                //transform.Rotate(0f, 0f, Vector2.SignedAngle(transform.position, _playerPosition.position) - transform.rotation.z);
+                //_currentDirection = headingToPlayer;
             }
             RB.MovePosition(transform.position + FlySpeed * (Vector3)_heading * Time.fixedDeltaTime);
         }

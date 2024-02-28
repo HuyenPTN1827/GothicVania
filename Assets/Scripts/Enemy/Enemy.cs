@@ -86,9 +86,12 @@ public class Enemy : MonoBehaviour {
 
     void Start() {
         Path.maxSpeed = Speed;
-        if (!ApplyGravity) Path.gravity = Vector3.zero;
+        if (!ApplyGravity) {
+            Path.gravity = Vector3.zero;
+            RB.gravityScale = 0;
+        }
 
-        CanAttack = true;
+            CanAttack = true;
 
         IdleStateInstance.Initialize(gameObject, this);
         AggroStateInstance.Initialize(gameObject, this);
@@ -111,8 +114,11 @@ public class Enemy : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if (Physics2D.OverlapBox(_frontLedgeCheck.transform.position, _frontCheckSize, 0f, _groundLayer) || Physics2D.OverlapBox(_backLedgeCheck.transform.position, _backCheckSize, 0f, _groundLayer)) RB.gravityScale = 0f;
-        else RB.gravityScale = _gravityScale;
+        if (!ApplyGravity) {
+            if (Physics2D.OverlapBox(_frontLedgeCheck.transform.position, _frontCheckSize, 0f, _groundLayer) || Physics2D.OverlapBox(_backLedgeCheck.transform.position, _backCheckSize, 0f, _groundLayer)) RB.gravityScale = 0f;
+            else RB.gravityScale = _gravityScale;
+        }
+
 
         StateMachine.CurrentState.PhysicsUpdate();
 

@@ -46,12 +46,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
     public void Damage(float damage) {
         CurrentHealth -= damage;
         if (CurrentHealth <= 0) Die();
-        Anim.SetBool("Hit", true);
+        Debug.Log("Hit");
     }
 
     public void DamageWithKnockback(float damage, Vector2 _direction, float hitStrength) {
         Damage(damage);
 
+        Anim.SetBool("Hit", true);
         StartRecovery();
         StartInvicible();
         RB.velocity = Vector2.one * 0.1f;

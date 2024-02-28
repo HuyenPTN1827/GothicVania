@@ -21,3 +21,4 @@ MonoBehaviour:
   KnockbackStrength: 0.1
   Projectile: {fileID: 8929305542816867226, guid: 8a2a2e5420d0cd94487e438dd267b33c, type: 3}
   SpawnDelayTime: 0.25
+  HasSpawnWhineUp: 1

@@ -586,7 +586,7 @@ public class PlayerMovement : MonoBehaviour {
     #endregion
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (LayerMask.LayerToName(collision.gameObject.layer).Equals("Monster")) {
+        if (LayerMask.LayerToName(collision.gameObject.layer).Equals("Monster") && collision.gameObject.GetComponent<Enemy>() != null) {
             Vector2 direction = (collision.transform.position - transform.position).normalized;
             direction = new Vector2(Health.knockbackVertical.x * (direction.x < 0 ? 1 : -1), Health.knockbackVertical.y);
             Health.DamageWithKnockback(Health.knocbackDamage, direction, Health.knockbackStrength);

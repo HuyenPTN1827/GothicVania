@@ -10,15 +10,16 @@ public class EnemyAttackState : EnemyState {
     [SerializeField] public Transform AttackPosition;
     [SerializeField] public float AttackRange;
     [SerializeField] public float AttackCooldown;
+    [SerializeField] public string AttackAnimTrigger;
     [SerializeField] public float Damage;
     [SerializeField] protected bool WaitUntilHitEnd;
     [SerializeField] protected Vector2 KnockbackVertical;
     [SerializeField] public float KnockbackStrength;
 
-    List<GameObject> targets;
-    List<GameObject> targetsTotal;
-    Vector3 pos;
-    bool _canChangeState;
+    protected List<GameObject> targets;
+    protected List<GameObject> targetsTotal;
+    protected Vector3 pos;
+    protected bool _canChangeState;
     bool _isOnCooldown;
     public override void AnimationTriggerEvents(Enemy.AnimationTriggerType type) {
         base.AnimationTriggerEvents(type);
@@ -51,13 +52,9 @@ public class EnemyAttackState : EnemyState {
 
         base.FrameUpdate();
 
-        if (!WaitUntilHitEnd) {
-            ExecuteHit();
-        }
+        if (!WaitUntilHitEnd) ExecuteHit();
 
-        if (IsInRangeForAttack() && !_isOnCooldown) {
-            Attack();
-        }
+        if (IsInRangeForAttack() && !_isOnCooldown) Attack();
         else {
             if (_canChangeState) enemy.StateMachine.ChangeState(enemy.AggroStateInstance);
         }
@@ -68,7 +65,7 @@ public class EnemyAttackState : EnemyState {
 
         pos = enemy.transform.position;
 
-        enemy.Anim.SetTrigger("Attack");
+        enemy.Anim.SetTrigger(AttackAnimTrigger);
         enemy.OnCooldownAttacks.Add(this, 999f);
         _canChangeState = false;
 

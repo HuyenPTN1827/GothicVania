@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20bffb0eb140a794090cfc181579bd02, type: 3}
+  m_Name: DemonFireBreath
+  m_EditorClassIdentifier: 
+  AttackPosition: {fileID: 0}
+  AttackRange: 1
+  AttackCooldown: 10
+  AttackAnimTrigger: Breathe
+  Damage: 0
+  WaitUntilHitEnd: 1
+  KnockbackVertical: {x: 0, y: 0}
+  KnockbackStrength: 0
+  TickRate: 0.6
+  BreathingTime: 3
+  _breathRadius: 1
+  _breathingSpeedModifier: 0
