@@ -74,7 +74,7 @@ public class EnemyAggroState : EnemyState {
         if (enemy.DetectedPlayer) _retentionTime = AwareTime;
         if (_retentionTime <= 0 || IsOutOfBound) enemy.StateMachine.ChangeState(enemy.IdleStateInstance);
         if (AvailableAttacks().Count == 0) enemy.StateMachine.ChangeState(enemy.RetreatStateInstance);
-        if (TryChooseAttack(out var attack)) enemy.StateMachine.ChangeState(attack);
+        if (enemy.CanAttack) if (TryChooseAttack(out var attack)) enemy.StateMachine.ChangeState(attack);
     }
 
     protected virtual Vector2 UpdateDestination() => new Vector2(playerTransform.position.x, playerTransform.position.y);

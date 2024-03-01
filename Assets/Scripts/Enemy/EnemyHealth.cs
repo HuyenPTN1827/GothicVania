@@ -6,17 +6,18 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IDamageable {
 
     #region Healths
+    public float MaxHealth { get => _maxHealth; set { _maxHealth = value; } }
+    public float CurrentHealth { get => _currentHealth; set { _currentHealth = value; } }
     [SerializeField] float _maxHealth;
     [SerializeField] float _currentHealth;
 
     Enemy enemy;
 
-    public float MaxHealth { get => _maxHealth; set { _maxHealth = value; } }
-    public float CurrentHealth { get => _currentHealth; set { _currentHealth = value; } }
     #endregion
 
     [SerializeField] private float _knockbackTime = 5f;
     [SerializeField] private float _knockbackCount = 0;
+    [SerializeField] private bool _ignoreKnockback;
 
     void Awake() {
         CurrentHealth = MaxHealth;
@@ -47,7 +48,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable {
     }
 
     public void DamageWithKnockback(float damage, Vector2 position, float hitStrength) {
-        StartCoroutine(Recovery(position, hitStrength));
+        if (_ignoreKnockback) StartCoroutine(Recovery(position, hitStrength));
 
         Damage(damage);
         //StartCoroutine(Knockback(position , hitStrength));

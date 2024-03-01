@@ -25,7 +25,12 @@ public class EnemyAttackState : EnemyState {
         base.AnimationTriggerEvents(type);
     }
 
-    public virtual bool Prerequisite() => true;
+    public virtual bool Prerequisite() {
+        if (!IsInRangeForAttack()) return false;
+        if (_isOnCooldown) return false;
+
+        return true;
+    }
 
     public override void Initialize(GameObject gameObject, Enemy enemy) {
         base.Initialize(gameObject, enemy);
@@ -46,6 +51,7 @@ public class EnemyAttackState : EnemyState {
 
     public override void ExitState() {
         base.ExitState();
+        if(_isOnCooldown) enemy.StartCoroutine(enemy.FinishAttack());
     }
 
     public override void FrameUpdate() {
@@ -54,7 +60,7 @@ public class EnemyAttackState : EnemyState {
 
         if (!WaitUntilHitEnd) ExecuteHit();
 
-        if (IsInRangeForAttack() && !_isOnCooldown) Attack();
+        if (Prerequisite()) Attack();
         else {
             if (_canChangeState) enemy.StateMachine.ChangeState(enemy.AggroStateInstance);
         }

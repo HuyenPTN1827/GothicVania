@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DemonFireBreath
   m_EditorClassIdentifier: 
   AttackPosition: {fileID: 0}
-  AttackRange: 1
+  AttackRange: 2
   AttackCooldown: 10
   AttackAnimTrigger: Breathe
   Damage: 0

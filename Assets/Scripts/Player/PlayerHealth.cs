@@ -46,7 +46,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
     public void Damage(float damage) {
         CurrentHealth -= damage;
         if (CurrentHealth <= 0) Die();
-        Debug.Log("Hit");
     }
 
     public void DamageWithKnockback(float damage, Vector2 _direction, float hitStrength) {

@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] protected Vector2 _frontCheckSize;
     [SerializeField] protected Transform _backLedgeCheck;
     [SerializeField] protected Vector2 _backCheckSize;
-    [SerializeField] protected LayerMask _groundLayer;
+    [SerializeField] public LayerMask _groundLayer;
     float _gravityScale;
 
     [Space(20)]
@@ -137,6 +137,12 @@ public class Enemy : MonoBehaviour {
         IsFacingRight = !IsFacingRight;
         transform.localScale.Set(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         //transform.Rotate(new Vector3(0,180, 0));
+    }
+
+    public  IEnumerator FinishAttack() {
+        CanAttack = false;
+        yield return new WaitForSeconds(DelayBetweenAttacks);
+        CanAttack = true;
     }
 
     #region Animation Trigger

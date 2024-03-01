@@ -26,7 +26,7 @@ public class RangeAttackState : EnemyAttackState {
     protected virtual void InitiateProjectile() {
         _projectile = Instantiate(Projectile);
         var projectileController = _projectile.GetComponent<EnemyProjectile>();
-        projectileController.Initialize(this);
+        projectileController.Initialize(this, (AttackPosition.position - playerTransform.position).normalized);
     }
 
     public override void HitStart() {

@@ -15,13 +15,14 @@ public class EnemyProjectile : MonoBehaviour {
 
     public Transform _playerPosition;
     public float Damage;
+    public Vector2 KnockbackAngle;
     public float HitStrength;
 
     Enemy enemy;
     bool _shoot = false;
     bool _isFlying = false;
-    Vector2 _heading = Vector2.zero;
     Rigidbody2D RB;
+    Vector2 direction;
 
     // Start is called before the first frame update
     protected virtual void Start() {
@@ -29,23 +30,24 @@ public class EnemyProjectile : MonoBehaviour {
         RB = GetComponent<Rigidbody2D>();
     }
 
-    public void Initialize(EnemyAttackState attackState) {
+    public void Initialize(EnemyAttackState attackState, Vector2 direction) {
         transform.position = attackState.AttackPosition.position;
         transform.parent = attackState.enemy.transform;
         Damage = attackState.Damage;
         HitStrength = attackState.KnockbackStrength;
         _playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
         this.enemy = attackState.enemy;
+        this.direction = direction;
+
         SpawnProjectile();
     }
 
     protected virtual void SpawnProjectile() {
 
-        transform.Rotate(0f, 0f, (Vector2.SignedAngle(transform.position - (transform.position + Vector3.down), transform.position - _playerPosition.position) - transform.rotation.z) * (enemy.IsFacingRight ? -1 : 1));
+        transform.Rotate(0f, 0f, (Vector2.SignedAngle(transform.position - (transform.position + Vector3.down), direction) - transform.rotation.z) * (enemy.IsFacingRight ? -1 : 1));
 
         _currentDirection = (_playerPosition.position - transform.position).normalized;
 
-        _heading = (_playerPosition.position - transform.position).normalized;
         transform.parent = null;
         _isFlying = true;
     }
@@ -62,14 +64,14 @@ public class EnemyProjectile : MonoBehaviour {
                 //transform.Rotate(0f, 0f, Vector2.SignedAngle(transform.position, _playerPosition.position) - transform.rotation.z);
                 //_currentDirection = headingToPlayer;
             }
-            RB.MovePosition(transform.position + FlySpeed * (Vector3)_heading * Time.fixedDeltaTime);
+            RB.MovePosition(transform.position - FlySpeed * (Vector3)direction * Time.fixedDeltaTime);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) {
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-            damageable?.DamageWithKnockback(Damage, transform.position, HitStrength);
+            damageable?.DamageWithKnockback(Damage, new Vector2(KnockbackAngle.x * (collision.gameObject.transform.position.x > transform.position.x ? 1 : -1), KnockbackAngle.y) , HitStrength* 100);
         }
         DestroyProjectile();
     }

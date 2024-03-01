@@ -29,7 +29,6 @@ public class LungeAttack : EnemyAttackState {
         if (_isAttacking) {
             enemy.RB.velocity = _lungeVector;
         }
-
     }
 
     protected override RaycastHit2D[] GetHits() => Physics2D.CircleCastAll(enemy.transform.position, AttackRange / 2, Vector2.zero, 0f, enemy._playerLayer);
