@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamageable {
-    public Rigidbody2D RB;
+    [SerializeField] Rigidbody2D RB;
+    [SerializeField] Animator Anim;
+    [SerializeField] PlayerRespawn Respawn;
     private PlayerMovement movement;
-    public Animator Anim;
 
     #region Healths
     [SerializeField] float _maxHealth;
@@ -33,6 +34,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
         RB = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
         movement = GetComponent<PlayerMovement>();
+        Respawn = GetComponent<PlayerRespawn>();
     }
 
     void Update() {
@@ -100,6 +102,18 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
     }
 
     public void Die() {
-        throw new System.NotImplementedException();
+        Debug.Log("Player Died");
+        CurrentHealth = MaxHealth;
+
+        Respawn?.Respawn();
     }
+
+    public void DamageWithRespawn(float damage = 0f) {
+        Damage(damage);
+
+        //RB.velocity = Vector3.zero;
+        StartInvicible();
+        if (CurrentHealth > 0f) Respawn.Respawn();
+    }
+
 }

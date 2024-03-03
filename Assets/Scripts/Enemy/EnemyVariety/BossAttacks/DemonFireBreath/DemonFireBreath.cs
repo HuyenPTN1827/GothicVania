@@ -37,7 +37,6 @@ public class DemonFireBreath : EnemyAttackState {
     }
 
     public override void ExecuteHit() {
-        Debug.Log("Hit player" + ++count);
         foreach (var target in targets) {
             IDamageable damageable = target.GetComponent<IDamageable>();
             Vector2 direction = (pos - target.transform.position).normalized;
@@ -52,7 +51,6 @@ public class DemonFireBreath : EnemyAttackState {
         _tickCountdown -= Time.deltaTime;
         _breathTimeRemaining -= Time.deltaTime;
 
-        Debug.Log(_tickCountdown);
         if (_tickCountdown < 0f ) {
             _tickCountdown = TickRate;
             ExecuteHit();

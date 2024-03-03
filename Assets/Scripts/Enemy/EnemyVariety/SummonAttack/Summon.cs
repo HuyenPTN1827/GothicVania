@@ -96,7 +96,6 @@ public class Summon : MonoBehaviour, ISummon {
     public virtual void DestroySummon() => Destroy(gameObject);
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        Debug.Log("Hi" + gameObject.name);
         var knockbackVector = new Vector2(Knockback.x * (enemy.transform.position.x < attackState.playerTransform.position.x ? 1 : -1), Knockback.y);
         if (collision.collider.GetComponent<IDamageable>() != null) {
             var damage = collision.collider.GetComponent<IDamageable>();
