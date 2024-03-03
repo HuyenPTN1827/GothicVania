@@ -7,5 +7,6 @@ public interface IDamageable {
     public float CurrentHealth { get; set; }
     public void Damage(float damage);
     public void DamageWithKnockback(float damage, Vector2 _direction, float hitStrength);
+    public void Heal(float heal);
     public void Die();
 }

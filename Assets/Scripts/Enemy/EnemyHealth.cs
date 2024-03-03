@@ -66,6 +66,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable {
         enemy.DestinationSetter.enabled = true;
     }
 
+    public void Heal(float heal) {
+        Debug.Log("Enemies aren't suppose to heal");
+    }
+
     //private IEnumerator Knockback(Vector2 position, float hitStrength) {
     //    bool _leftHit;
     //    if (position.x < RB.position.x) _leftHit = true;

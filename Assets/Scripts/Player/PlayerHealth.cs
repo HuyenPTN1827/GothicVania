@@ -50,6 +50,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
         if (CurrentHealth <= 0) Die();
     }
 
+    public void Heal(float heal) {
+        CurrentHealth += heal;
+        if (CurrentHealth > MaxHealth) CurrentHealth = MaxHealth;
+    }
+
     public void DamageWithKnockback(float damage, Vector2 _direction, float hitStrength) {
         Damage(damage);
 
