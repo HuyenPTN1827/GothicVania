@@ -24,3 +24,6 @@ MonoBehaviour:
   BreathingTime: 3
   _breathRadius: 1
   _breathingSpeedModifier: 0
+  _items:
+  - {fileID: 6210293002444362811, guid: 2e3d0720c8b170744ab5da7fc6921a18, type: 3}
+  - {fileID: 7658298883918400415, guid: 74d1cbd0720b35f4c94cdc4def626ba7, type: 3}
