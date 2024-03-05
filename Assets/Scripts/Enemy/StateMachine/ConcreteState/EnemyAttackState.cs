@@ -26,8 +26,8 @@ public class EnemyAttackState : EnemyState {
     }
 
     public virtual bool Prerequisite() {
-        if (!IsInRangeForAttack()) return false;
-        if (_isOnCooldown) return false;
+        //if (!IsInRangeForAttack()) return false;
+        //if (_isOnCooldown) return false;
 
         return true;
     }
@@ -60,7 +60,7 @@ public class EnemyAttackState : EnemyState {
 
         if (!WaitUntilHitEnd) ExecuteHit();
 
-        if (Prerequisite()) Attack();
+        if (Prerequisite() && IsInRangeForAttack() && !_isOnCooldown) Attack();
         else {
             if (_canChangeState) enemy.StateMachine.ChangeState(enemy.AggroStateInstance);
         }

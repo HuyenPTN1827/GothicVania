@@ -21,6 +21,7 @@ public class RangeAttackState : EnemyAttackState {
         base.Attack();
 
         if (HasSpawnWhineUp) InitiateProjectile();
+
     }
 
     protected virtual void InitiateProjectile() {
@@ -30,6 +31,7 @@ public class RangeAttackState : EnemyAttackState {
     }
 
     public override void HitStart() {
+
         if (_projectile == null) InitiateProjectile();
         var projectileController = _projectile.GetComponent<EnemyProjectile>();
         projectileController.Shoot();
