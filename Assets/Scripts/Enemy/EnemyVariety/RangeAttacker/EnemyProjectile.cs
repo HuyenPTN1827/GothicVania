@@ -33,7 +33,7 @@ public class EnemyProjectile : MonoBehaviour {
     public void Initialize(EnemyAttackState attackState, Vector2 direction) {
         transform.position = attackState.AttackPosition.position;
         transform.parent = attackState.enemy.transform;
-        Damage = attackState.Damage;
+        //Damage = attackState.Damage;
         HitStrength = attackState.KnockbackStrength;
         _playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
         this.enemy = attackState.enemy;
@@ -71,6 +71,7 @@ public class EnemyProjectile : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) {
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+            Debug.Log("Damaged: " + damageable.ToString() + " damage " + Damage);
             damageable?.DamageWithKnockback(Damage, new Vector2(KnockbackAngle.x * (collision.gameObject.transform.position.x > transform.position.x ? 1 : -1), KnockbackAngle.y) , HitStrength* 100);
         }
         DestroyProjectile();

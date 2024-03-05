@@ -14,7 +14,8 @@ using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
-	public static HealthSystem Instance;
+	public PlayerHealth PlayerHealth;
+    public static HealthSystem Instance;
 
 	public Image currentHealthBar;
 	public Image currentHealthGlobe;

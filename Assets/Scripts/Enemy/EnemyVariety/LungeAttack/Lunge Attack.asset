@@ -16,9 +16,9 @@ MonoBehaviour:
   AttackRange: 1
   AttackCooldown: 3
   AttackAnimTrigger: Attack
-  Damage: 0
+  Damage: 10
   WaitUntilHitEnd: 0
-  KnockbackVertical: {x: 0.3, y: 0.7}
+  KnockbackVertical: {x: 0.4, y: 0.6}
   KnockbackStrength: 8
   _lungeSpeedMultiplier: 18
   _anticipationSpeedMultiplier: 0.001

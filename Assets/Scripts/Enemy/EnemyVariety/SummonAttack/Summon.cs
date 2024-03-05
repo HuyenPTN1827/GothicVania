@@ -57,7 +57,7 @@ public class Summon : MonoBehaviour, ISummon {
 
     public virtual void AddCollider() {
         var bc = gameObject.GetComponent<BoxCollider2D>();
-        bc.size = new Vector2(SR.size.x * BoundXModifier, SR.size.y * BoundYModifier);
+        bc.size = new Vector2((SR.size.x * BoundXModifier)/ 2, (SR.size.y * BoundYModifier)/2);
         bc.enabled = true;
     }
 
