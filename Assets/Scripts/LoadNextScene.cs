@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class LoadNextScene : MonoBehaviour
 {
-    [SerializeField] private SceneAsset scene;
-    public float delaySecond = 2;
+    [SerializeField] public SceneAsset scene;
+    //public string scene;
+    public float delaySecond;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,10 +22,10 @@ public class LoadNextScene : MonoBehaviour
 
     public void NodeSelect()
     {
-        StartCoroutine((IEnumerator)LoadAfterDelay());
+        StartCoroutine(LoadAfterDelay());
     }
 
-    IEnumerable LoadAfterDelay()
+    IEnumerator LoadAfterDelay()
     {
         yield return new WaitForSeconds(delaySecond);
         SceneManager.LoadScene(scene.name);
