@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
     [SerializeField] Rigidbody2D RB;
     [SerializeField] Animator Anim;
     [SerializeField] PlayerRespawn Respawn;
+    [SerializeField] HealthSystem HealthSystem;
     private PlayerMovement movement;
 
     #region Healths
@@ -35,6 +36,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
         Anim = GetComponent<Animator>();
         movement = GetComponent<PlayerMovement>();
         Respawn = GetComponent<PlayerRespawn>();
+
+        HealthSystem.maxHitPoint = MaxHealth;
+        HealthSystem.hitPoint = CurrentHealth;
     }
 
     void Update() {
@@ -48,11 +52,15 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
     public void Damage(float damage) {
         CurrentHealth -= damage;
         if (CurrentHealth <= 0) Die();
+        HealthSystem.TakeDamage(damage);
     }
 
     public void Heal(float heal) {
-        CurrentHealth += heal;
-        if (CurrentHealth > MaxHealth) CurrentHealth = MaxHealth;
+        var healAmount = CurrentHealth + heal <= MaxHealth ? heal : MaxHealth - CurrentHealth;
+        Debug.Log(MaxHealth - CurrentHealth);
+        Debug.Log( healAmount + " heal " + heal);
+        HealthSystem.HealDamage(healAmount);
+        CurrentHealth += healAmount;
     }
 
     public void DamageWithKnockback(float damage, Vector2 _direction, float hitStrength) {
@@ -63,6 +71,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
         StartInvicible();
         RB.velocity = Vector2.one * 0.1f;
         RB.velocity = _direction * hitStrength;
+    }
+
+    public void IncreaseMaxHealth(float heal, bool increaseCurrentHealth = false) {
+        Debug.Log("max health" + heal);
+        MaxHealth += heal;
+        HealthSystem.SetMaxHealth(heal);
+        if (increaseCurrentHealth) Heal(heal);
     }
 
     private void StartInvicible() {
@@ -109,7 +124,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
     public void Die() {
         Debug.Log("Player Died");
         CurrentHealth = MaxHealth;
-
+        HealthSystem.hitPoint = MaxHealth;
         Respawn?.Respawn();
     }
 

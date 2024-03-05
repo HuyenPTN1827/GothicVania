@@ -16,7 +16,7 @@ MonoBehaviour:
   AttackRange: 2
   AttackCooldown: 10
   AttackAnimTrigger: Breathe
-  Damage: 0
+  Damage: 3
   WaitUntilHitEnd: 1
   KnockbackVertical: {x: 0, y: 0}
   KnockbackStrength: 0

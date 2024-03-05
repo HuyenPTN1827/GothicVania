@@ -109,7 +109,7 @@ MonoBehaviour:
   SteeringSpeed: 0
   _currentDirection: {x: 0, y: -1}
   _playerPosition: {fileID: 0}
-  Damage: 0
+  Damage: 15
   KnockbackAngle: {x: 0.2, y: 0.8}
   HitStrength: 10
 --- !u!58 &8459492207729835562

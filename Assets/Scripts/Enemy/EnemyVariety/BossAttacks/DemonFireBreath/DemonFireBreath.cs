@@ -61,16 +61,18 @@ public class DemonFireBreath : EnemyAttackState {
 
         if (_tickCountdown < 0f) {
             _tickCountdown = TickRate;
+            Debug.Log("tick");
             ExecuteHit();
             targetsTotal.Clear();
         }
         if (_breathTimeRemaining < 0) {
-            Debug.Log("Spawn item");
+            //Debug.Log("Spawn item");
             HitEnd();
         }
     }
 
     public override void HitStart() {
+        base.HitStart();
         _breathTimeRemaining = BreathingTime;
         enemy.Anim.SetBool("IsBreathing", true);
     }
@@ -91,7 +93,7 @@ public class DemonFireBreath : EnemyAttackState {
 
 
         if (_items != null) {
-            //Debug.Log("Spawn item");
+            Debug.Log("Spawn item");
             var id = new System.Random().Next(0, _items.Count);
             //Debug.Log("Count = " + (_items.Count) + " Id = " + id);
             var item = Instantiate(_items[id]);
