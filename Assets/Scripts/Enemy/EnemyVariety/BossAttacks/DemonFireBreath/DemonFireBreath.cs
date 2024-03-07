@@ -20,7 +20,8 @@ public class DemonFireBreath : EnemyAttackState {
     static int count = 0;
     protected float _breathTimeRemaining = 0;
     protected float _tickCountdown = 0;
-    protected bool _isSpawning = false;
+    protected GameObject _spawnItem;
+    protected bool IsSpawning = false;
 
     protected Transform _breathCenter;
     protected float _speed;
@@ -29,6 +30,7 @@ public class DemonFireBreath : EnemyAttackState {
         count = 0;
         base.Initialize(gameObject, enemy);
         _breathCenter = enemy.Checks.Find(e => e.name.Equals("breathCenter")).transform;
+        _spawnItem = null;
     }
 
     public override void EnterState() {
@@ -51,17 +53,19 @@ public class DemonFireBreath : EnemyAttackState {
             direction = new Vector2(KnockbackVertical.x * (direction.x < 0 ? 1 : -1), KnockbackVertical.y);
             damageable.Damage(Damage);
         }
+        targets.Clear();
+        targetsTotal.Clear();
     }
 
-    public override void FrameUpdate() {
-        base.FrameUpdate();
+    public override void PhysicsUpdate() {
+        base.PhysicsUpdate();
 
         _tickCountdown -= Time.deltaTime;
         _breathTimeRemaining -= Time.deltaTime;
 
         if (_tickCountdown < 0f) {
             _tickCountdown = TickRate;
-            Debug.Log("tick");
+            //Debug.Log("tick");
             ExecuteHit();
             targetsTotal.Clear();
         }
@@ -84,29 +88,31 @@ public class DemonFireBreath : EnemyAttackState {
         _canChangeState = true;
         enemy.Anim.SetBool("IsBreathing", false);
 
-        enemy.StartCoroutine(SpawnItem());
+        SpawnItem();
     }
 
-    private IEnumerator SpawnItem() {
-        if (_isSpawning) yield break;
-        _isSpawning = true;
+    private void SpawnItem() {
+        if (IsSpawning) return;
+        IsSpawning = true;
 
-
-        if (_items != null) {
-            Debug.Log("Spawn item");
-            var id = new System.Random().Next(0, _items.Count);
-            //Debug.Log("Count = " + (_items.Count) + " Id = " + id);
-            var item = Instantiate(_items[id]);
-            item.transform.position = _breathCenter.position;
-        }
-
-        _isSpawning = false;
+        var id = new System.Random().Next(0, _items.Count);
+        //Debug.Log("Count = " + (_items.Count) + " Id = " + id
+        var item = Instantiate(_items[id]);
+        _spawnItem = item.gameObject;
+        Debug.Log("Spawn item " +item.name);
+        item.transform.position = _breathCenter.position;
+        IsSpawning = false;
     }
 
     public override bool IsInRangeForAttack() => Physics2D.CircleCastAll
         (_breathCenter.position, _breathRadius, -enemy.transform.right, 0f, enemy._playerLayer).Length
         > 0;
 
+    public override void ResetValues() {
+        base.ResetValues();
+
+        _spawnItem = null;
+    }
     protected override RaycastHit2D[] GetHits() => Physics2D.CircleCastAll(_breathCenter.position, _breathRadius, Vector2.zero, 0f, enemy._playerLayer);
 
     public override void OnDrawGizmos() {

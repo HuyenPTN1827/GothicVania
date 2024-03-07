@@ -15,4 +15,4 @@ MonoBehaviour:
   AwareTime: 15
   ChaseSpeedMultiplier: 1
   ChaseVisionMultiplier: 1
-  BoundaryRadius: 6
+  BoundaryRadius: 7.5

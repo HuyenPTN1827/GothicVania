@@ -74,7 +74,7 @@ public class LungeAttack : EnemyAttackState {
         var direction = -enemy.transform.right * (enemy.IsFacingRight ? -1 : 1) * enemy.Speed * _lungeSpeedMultiplier* 2f;
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(AttackPosition.position, direction);
+        Gizmos.DrawLine(AttackPosition.position, AttackPosition.position + direction);
     }
 
     public override void HitEnd() {

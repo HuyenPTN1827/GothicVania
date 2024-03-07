@@ -121,11 +121,15 @@ public class EnemyAttackState : EnemyState {
 
     public virtual void ExecuteHit() {
         foreach (var target in targets) {
+            Debug.Log("Hit on: " + target.name);
             IDamageable damageable = target.GetComponent<IDamageable>();
+            if (damageable == null) continue; 
             Vector2 direction = (pos - target.transform.position).normalized;
             direction = new Vector2(KnockbackVertical.x * (direction.x < 0 ? 1 : -1), KnockbackVertical.y);
             damageable.DamageWithKnockback(Damage, direction, KnockbackStrength);
         }
+        targets.Clear();
+        targetsTotal.Clear();   
     }
 
     public virtual bool IsInRangeForAttack() => Physics2D.CircleCastAll

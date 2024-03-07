@@ -51,14 +51,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
 
     public void Damage(float damage) {
         CurrentHealth -= damage;
-        if (CurrentHealth <= 0) Die();
         HealthSystem.TakeDamage(damage);
+        if (CurrentHealth <= 0) Die();
     }
 
     public void Heal(float heal) {
         var healAmount = CurrentHealth + heal <= MaxHealth ? heal : MaxHealth - CurrentHealth;
-        Debug.Log(MaxHealth - CurrentHealth);
-        Debug.Log( healAmount + " heal " + heal);
+        //Debug.Log(healAmount + " heal " + heal);
         HealthSystem.HealDamage(healAmount);
         CurrentHealth += healAmount;
     }
@@ -74,7 +73,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
     }
 
     public void IncreaseMaxHealth(float heal, bool increaseCurrentHealth = false) {
-        Debug.Log("max health" + heal);
+        //Debug.Log("max health" + heal);
         MaxHealth += heal;
         HealthSystem.SetMaxHealth(heal);
         if (increaseCurrentHealth) Heal(heal);
@@ -123,8 +122,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
 
     public void Die() {
         Debug.Log("Player Died");
+        HealthSystem.HealDamage(MaxHealth - CurrentHealth);
         CurrentHealth = MaxHealth;
-        HealthSystem.hitPoint = MaxHealth;
+        StartInvicible();
         Respawn?.Respawn();
     }
 
