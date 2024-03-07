@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamageable {
+    public AudioManager audioManager;
+
     [SerializeField] Rigidbody2D RB;
     [SerializeField] Animator Anim;
     [SerializeField] PlayerRespawn Respawn;
@@ -52,6 +54,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
     public void Damage(float damage) {
         CurrentHealth -= damage;
         HealthSystem.TakeDamage(damage);
+        audioManager.PlaySfx(audioManager.hurtClip);
         if (CurrentHealth <= 0) Die();
     }
 
@@ -136,4 +139,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
         if (CurrentHealth > 0f) Respawn.Respawn();
     }
 
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 }

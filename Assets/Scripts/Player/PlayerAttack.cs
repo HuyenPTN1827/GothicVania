@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour {
+    public AudioManager audioManager; 
+
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D RB;
     [SerializeField] private PlayerMovement _playerMovement;
@@ -63,6 +65,7 @@ public class PlayerAttack : MonoBehaviour {
 
     private IEnumerator Attack() {
         _animator.SetTrigger("Attack");
+        audioManager.PlaySfx(audioManager.attackClip);
         foreach (var clip in _animator.GetCurrentAnimatorClipInfo(0)) if (clip.clip.name.Equals(_attackName)) _attackTimer = clip.clip.length;
         while (!_animator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Equals(_attackName)) {
             _attackTimer = 1f;
@@ -108,4 +111,10 @@ public class PlayerAttack : MonoBehaviour {
     private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(_attackTransform.position, _attackRange);
     }
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
 }

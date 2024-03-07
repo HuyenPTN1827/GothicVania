@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 
 [CreateAssetMenu]
 public class LungeAttack : EnemyAttackState {
+    public AudioManager audioManager;
+
     [Space(20)]
     [Header("Lunge Values")]
     [SerializeField] float _lungeSpeedMultiplier;
@@ -13,7 +15,6 @@ public class LungeAttack : EnemyAttackState {
     Collider2D _playerCollider;
     bool _isAttacking;
     Vector2 _lungeVector;
-    
 
     public override void Initialize(GameObject gameObject, Enemy enemy) {
         base.Initialize(gameObject, enemy);
@@ -53,6 +54,7 @@ public class LungeAttack : EnemyAttackState {
         enemy.Path.canMove = false;
         enemy.DestinationSetter.enabled = false;
         enemy.RB.velocity = Vector2.zero;
+        audioManager.PlaySfx(audioManager.attackClip);
 
         _lungeVector = (playerTransform.position - enemy.transform.position).normalized * _lungeSpeedMultiplier;
     }
@@ -88,5 +90,10 @@ public class LungeAttack : EnemyAttackState {
         enemy.DestinationSetter.enabled = true;
 
         _isAttacking = false;   
+    }
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 }

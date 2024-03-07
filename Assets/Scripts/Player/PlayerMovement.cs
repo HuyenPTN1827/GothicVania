@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
     //just paste in all the parameters, though you will need to manuly change all references in this script
     public PlayerData Data;
     public Animator Animator;
+    public AudioManager audioManager;
 
     #region COMPONENTS
     public Rigidbody2D RB { get; private set; }
@@ -88,6 +89,7 @@ public class PlayerMovement : MonoBehaviour {
     private void Awake() {
         RB = GetComponent<Rigidbody2D>();
         Health = GetComponent<PlayerHealth>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         //AnimHandler = GetComponent<PlayerAnimator>();
     }
 
@@ -432,6 +434,7 @@ public class PlayerMovement : MonoBehaviour {
     #endregion
 
     #region JUMP METHODS
+
     private void Jump() {
         //Ensures we can't call Jump multiple times from one press
         LastPressedJumpTime = 0;
@@ -446,6 +449,8 @@ public class PlayerMovement : MonoBehaviour {
             force -= RB.velocity.y;
 
         RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+        audioManager.PlaySfx(audioManager.jumpClip);
+
         #endregion
     }
 
@@ -488,6 +493,7 @@ public class PlayerMovement : MonoBehaviour {
         _dashesLeft--;
         _isDashAttacking = true;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Monster"), true);
+        audioManager.PlaySfx(audioManager.jumpClip);
 
         SetGravityScale(0);
 

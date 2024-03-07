@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ManaSprite
   - HealthSprite
+  - Audio
   layers:
   - Default
   - TransparentFX

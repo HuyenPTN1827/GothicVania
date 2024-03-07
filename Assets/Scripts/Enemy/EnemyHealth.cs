@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable {
+    public AudioManager audioManager;
 
     #region Healths
     public float MaxHealth { get => _maxHealth; set { _maxHealth = value; } }
@@ -22,8 +23,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable {
     void Awake() {
         CurrentHealth = MaxHealth;
         enemy = GetComponent<Enemy>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
     }
-    
+
     public void Damage(float damage) {
         CurrentHealth -= damage;
         if (CurrentHealth <= 0) {
@@ -36,6 +39,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable {
         enemy.RB.gravityScale = 0f;
         enemy.Collider.enabled = false;
         enemy.Anim.SetTrigger("Die");
+        audioManager.PlaySfx(audioManager.killClip);
     }
 
     public void SelfKill() => Destroy(transform.gameObject);
