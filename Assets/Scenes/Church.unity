@@ -265,6 +265,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97eec7b1a37043d438f4f3df1bca685d, type: 3}
+--- !u!1 &72379770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5431189862998373678, guid: 97eec7b1a37043d438f4f3df1bca685d, type: 3}
+  m_PrefabInstance: {fileID: 72379769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &94840931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79483,6 +79488,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 265149383879800969, guid: f79435c831ae3ed4c81560b9c03e723b, type: 3}
+      propertyPath: damage
+      value: 
+      objectReference: {fileID: 72379770}
     - target: {fileID: 5752557249268916899, guid: f79435c831ae3ed4c81560b9c03e723b, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -80984,6 +80993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c97645a4991e54488d49157925baa09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
 --- !u!114 &1983899798
 MonoBehaviour:
   m_ObjectHideFlags: 0
