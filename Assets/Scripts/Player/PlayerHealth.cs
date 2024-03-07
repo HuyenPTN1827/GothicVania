@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
     [SerializeField] Rigidbody2D RB;
     [SerializeField] Animator Anim;
     [SerializeField] PlayerRespawn Respawn;
-    [SerializeField] HealthSystem HealthSystem;
+    //[SerializeField] HealthSystem HealthSystem;
     private PlayerMovement movement;
 
     #region Healths
@@ -39,8 +39,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
         movement = GetComponent<PlayerMovement>();
         Respawn = GetComponent<PlayerRespawn>();
 
-        HealthSystem.maxHitPoint = MaxHealth;
-        HealthSystem.hitPoint = CurrentHealth;
+        //HealthSystem.maxHitPoint = MaxHealth;
+        //HealthSystem.hitPoint = CurrentHealth;
     }
 
     void Update() {
@@ -53,7 +53,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
 
     public void Damage(float damage) {
         CurrentHealth -= damage;
-        HealthSystem.TakeDamage(damage);
+        //HealthSystem.TakeDamage(damage);
         audioManager.PlaySfx(audioManager.hurtClip);
         if (CurrentHealth <= 0) Die();
     }
@@ -61,7 +61,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
     public void Heal(float heal) {
         var healAmount = CurrentHealth + heal <= MaxHealth ? heal : MaxHealth - CurrentHealth;
         //Debug.Log(healAmount + " heal " + heal);
-        HealthSystem.HealDamage(healAmount);
+        //HealthSystem.HealDamage(healAmount);
         CurrentHealth += healAmount;
     }
 
@@ -78,7 +78,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
     public void IncreaseMaxHealth(float heal, bool increaseCurrentHealth = false) {
         //Debug.Log("max health" + heal);
         MaxHealth += heal;
-        HealthSystem.SetMaxHealth(heal);
+        //HealthSystem.SetMaxHealth(heal);
         if (increaseCurrentHealth) Heal(heal);
     }
 
@@ -125,7 +125,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable {
 
     public void Die() {
         Debug.Log("Player Died");
-        HealthSystem.HealDamage(MaxHealth - CurrentHealth);
+        //HealthSystem.HealDamage(MaxHealth - CurrentHealth);
         CurrentHealth = MaxHealth;
         StartInvicible();
         Respawn?.Respawn();
