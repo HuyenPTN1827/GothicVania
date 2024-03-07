@@ -493,7 +493,7 @@ public class PlayerMovement : MonoBehaviour {
         _dashesLeft--;
         _isDashAttacking = true;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Monster"), true);
-        audioManager.PlaySfx(audioManager.jumpClip);
+        audioManager.PlaySfx(audioManager.dashClip);
 
         SetGravityScale(0);
 

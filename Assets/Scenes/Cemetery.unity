@@ -1253,6 +1253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6978c7ca1bfe20240b1a4e5d0cab7d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   _maxHealth: 20
   _currentHealth: 0
   _knockbackTime: 0.5
@@ -29999,6 +30000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c97645a4991e54488d49157925baa09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
 --- !u!114 &1983141750
 MonoBehaviour:
   m_ObjectHideFlags: 0

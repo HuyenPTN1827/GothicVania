@@ -54,7 +54,7 @@ public class LungeAttack : EnemyAttackState {
         enemy.Path.canMove = false;
         enemy.DestinationSetter.enabled = false;
         enemy.RB.velocity = Vector2.zero;
-        audioManager.PlaySfx(audioManager.attackClip);
+        audioManager.PlaySfx(audioManager.catDashClip);
 
         _lungeVector = (playerTransform.position - enemy.transform.position).normalized * _lungeSpeedMultiplier;
     }

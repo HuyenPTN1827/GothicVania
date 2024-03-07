@@ -308,4 +308,9 @@ MonoBehaviour:
   attackClip: {fileID: 8300000, guid: 3dc51c7eed8ad5c4bb6c93551eb59ba4, type: 3}
   hurtClip: {fileID: 8300000, guid: 00d135c32f755034e9c88fc2f6db444a, type: 3}
   jumpClip: {fileID: 8300000, guid: 2dd1554c4cb52a44c990f182233e4c83, type: 3}
+  dashClip: {fileID: 8300000, guid: 14d5619e7b4b05141aa75cb6da7a4b4b, type: 3}
   killClip: {fileID: 8300000, guid: 5b548a2fb55b98546ab3dc377ae52e5b, type: 3}
+  catDashClip: {fileID: 8300000, guid: 4a0b5ba085cb9754d9f1dd820192ab3c, type: 3}
+  potionClip: {fileID: 8300000, guid: 3828ea54878f0df4a9c2bc7530aa6cef, type: 3}
+  flameClip: {fileID: 8300000, guid: 30a3e8eee99ab2f4ca10501cd94c9055, type: 3}
+  lightningClip: {fileID: 8300000, guid: c6ae1405079d20940a838d8d8bfc3b0e, type: 3}

@@ -6,6 +6,9 @@ using static UnityEditor.PlayerSettings;
 
 [CreateAssetMenu]
 public class DemonFireBreath : EnemyAttackState {
+    public AudioManager audioManager;
+    private bool isBreathing = false;
+
     [Space(20)]
     [Header("Breath Values")]
     [SerializeField] protected float TickRate;
@@ -79,14 +82,31 @@ public class DemonFireBreath : EnemyAttackState {
         base.HitStart();
         _breathTimeRemaining = BreathingTime;
         enemy.Anim.SetBool("IsBreathing", true);
+        enemy.StartCoroutine(BreathFire());
+        //audioManager.StartBreathFire(audioManager.flameClip);
+    }
+
+    IEnumerator BreathFire()
+    {
+        if (!isBreathing)
+        {
+            isBreathing = true;
+            audioManager.StartBreathFire(audioManager.flameClip);
+
+            yield return new WaitForSeconds(BreathingTime);
+
+            audioManager.StopBreathFire(audioManager.flameClip);
+            isBreathing = false;
+        }
     }
 
     public override void HitEnd() {
         targetsTotal.Clear();
-
         enemy.StartCoroutine(StartAttackCooldown());
+        enemy.StopCoroutine(BreathFire());
         _canChangeState = true;
         enemy.Anim.SetBool("IsBreathing", false);
+        isBreathing = false;
 
         SpawnItem();
     }
@@ -120,5 +140,10 @@ public class DemonFireBreath : EnemyAttackState {
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(_breathCenter.position, _breathRadius);
+    }
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 }
