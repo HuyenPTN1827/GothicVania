@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip potionClip;
     public AudioClip flameClip;
     public AudioClip lightningClip;
+    public AudioClip clickClip;
 
     void Start()
     {

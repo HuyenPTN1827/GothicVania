@@ -14,20 +14,20 @@ public class MenuOptions : MonoBehaviour
 
     public void NewGame()
     {
-        audioManager.PlaySfx(audioManager.attackClip);
+        audioManager.PlaySfx(audioManager.clickClip);
         SceneManager.LoadScene(1);
     }
 
     public void ReturnMenu()
     {
-        audioManager.PlaySfx(audioManager.attackClip);
+        audioManager.PlaySfx(audioManager.clickClip);
         SceneManager.LoadScene(0);
         Debug.Log("Click");
     }
 
     public void Quit()
     {
-        audioManager.PlaySfx(audioManager.attackClip);
+        audioManager.PlaySfx(audioManager.clickClip);
         Application.Quit();
 
     }
