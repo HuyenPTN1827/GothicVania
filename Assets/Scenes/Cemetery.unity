@@ -3471,7 +3471,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb69cc2936ef774dab75607df9b2001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: ccfb3f5849b816047af82cbaedf17b97, type: 3}
   delaySecond: 1
 --- !u!1 &1169791607 stripped
 GameObject:
@@ -29640,7 +29639,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779318528}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

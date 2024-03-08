@@ -58,7 +58,6 @@ public class EnemyAggroState : EnemyState {
         if ((xToPlayer < 0 && enemy.IsFacingRight) || (xToPlayer > 0 && !enemy.IsFacingRight)) enemy.Turn();    
     }
 
-
     public override void FrameUpdate() {
         base.FrameUpdate();
         _retentionTime -= Time.deltaTime;
