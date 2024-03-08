@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 [CreateAssetMenu]
 public class DemonFireBreath : EnemyAttackState {
@@ -33,6 +32,7 @@ public class DemonFireBreath : EnemyAttackState {
         count = 0;
         base.Initialize(gameObject, enemy);
         _breathCenter = enemy.Checks.Find(e => e.name.Equals("breathCenter")).transform;
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         _spawnItem = null;
     }
 
@@ -140,10 +140,5 @@ public class DemonFireBreath : EnemyAttackState {
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(_breathCenter.position, _breathRadius);
-    }
-
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 }

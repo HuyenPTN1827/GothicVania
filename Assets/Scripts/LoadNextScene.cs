@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadNextScene : MonoBehaviour
 {
-    [SerializeField] public SceneAsset scene;
+    //public SceneAsset scene;
     //public string scene;
     public float delaySecond;
 
@@ -28,6 +28,6 @@ public class LoadNextScene : MonoBehaviour
     IEnumerator LoadAfterDelay()
     {
         yield return new WaitForSeconds(delaySecond);
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -18,6 +18,7 @@ public class LungeAttack : EnemyAttackState {
 
     public override void Initialize(GameObject gameObject, Enemy enemy) {
         base.Initialize(gameObject, enemy);
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
 
         _playerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();    
     }
@@ -90,10 +91,5 @@ public class LungeAttack : EnemyAttackState {
         enemy.DestinationSetter.enabled = true;
 
         _isAttacking = false;   
-    }
-
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 }

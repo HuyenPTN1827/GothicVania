@@ -71,7 +71,7 @@ public class EnemyProjectile : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) {
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-            Debug.Log("Damaged: " + damageable.ToString() + " damage " + Damage);
+            //Debug.Log("Damaged: " + damageable.ToString() + " damage " + Damage);
             damageable?.DamageWithKnockback(Damage, new Vector2(KnockbackAngle.x * (collision.gameObject.transform.position.x > transform.position.x ? 1 : -1), KnockbackAngle.y) , HitStrength* 100);
         }
         DestroyProjectile();

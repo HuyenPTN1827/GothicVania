@@ -121,7 +121,7 @@ public class EnemyAttackState : EnemyState {
 
     public virtual void ExecuteHit() {
         foreach (var target in targets) {
-            Debug.Log("Hit on: " + target.name);
+            //Debug.Log("Hit on: " + target.name);
             IDamageable damageable = target.GetComponent<IDamageable>();
             if (damageable == null) continue; 
             Vector2 direction = (pos - target.transform.position).normalized;
