@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20bffb0eb140a794090cfc181579bd02, type: 3}
   m_Name: DemonFireBreath
@@ -16,10 +16,11 @@ MonoBehaviour:
   AttackRange: 2
   AttackCooldown: 10
   AttackAnimTrigger: Breathe
-  Damage: 3
+  Damage: 5
   WaitUntilHitEnd: 1
   KnockbackVertical: {x: 0, y: 0}
   KnockbackStrength: 0
+  audioManager: {fileID: 0}
   TickRate: 0.6
   BreathingTime: 3
   _breathRadius: 1

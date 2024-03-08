@@ -70,7 +70,7 @@ public class HealthSystem : MonoBehaviour
 		if (Regenerate)
 			Regen();
 
-		if (_health != damageable.CurrentHealth || _maxHealth != damageable.MaxHealth) UpdateGraphics();
+		/*if (_health != damageable.CurrentHealth || _maxHealth != damageable.MaxHealth)*/ UpdateGraphics();
 
     }
 
