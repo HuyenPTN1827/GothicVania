@@ -42,7 +42,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable {
         audioManager.PlaySfx(audioManager.killClip);
     }
 
-    public void SelfKill() => Destroy(transform.gameObject);
+    public void SelfKill() => Destroy(gameObject);
 
     public void OnDestroy() {
         
